@@ -3,23 +3,24 @@
   "id": "wurst",
   "version": "${version}",
 
-  "name": "Wurst Client",
-  "description": "Wurst Wurst Wurst!",
+  "name": "Admin Client",
+  "description": "Fork of Wurst made by Broulf to be used as an Admin Client.",
   "authors": [
-    "Alexander01998"
+    "Alexander01998",
+    "Broulf"
   ],
   "contact": {
-    "homepage": "https://www.wurstclient.net/",
-    "sources": "https://www.wurstclient.net/github/"
+    "homepage": "https://broulf.org",
+    "sources": ""
   },
 
   "license": "GPL-3.0-or-later",
-  "icon": "assets/wurst/icon.png",
+  "icon": "",
 
   "environment": "client",
   "entrypoints": {
     "main": [
-      "net.wurstclient.WurstInitializer"
+      "org.broulf.admin.WurstInitializer"
     ]
   },
   "mixins": [
