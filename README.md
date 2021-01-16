@@ -2,18 +2,17 @@
 
 ## Downloads (for users)
 
-https://www.wurstclient.net/download/
+https://broulf.org/download
 
 ## Setup (for developers) (using Windows 10 & Eclipse)
 
-1. Run these two commands in PowerShell:
+1. Run these two commands in CMD:
 
 ```
 ./gradlew.bat genSources
-./gradlew.bat eclipse
 ```
 
-2. In Eclipse, go to `Import...` > `Existing Projects into Workspace` and select this project.
+2. In IDEA, go to `Import...` > `Existing Projects into Workspace` and select this project.
 
 ## License
 
