@@ -25,12 +25,10 @@ public final class Navigator
 	private final HashMap<String, Long> preferences = new HashMap<>();
 	private final PreferencesFile preferencesFile;
 	
-	public Navigator(Path path, HackList hax, CmdList cmds, OtfList otfs)
+	public Navigator(Path path, HackList hax)
 	{
 		navigatorList.addAll(hax.getAllHax());
-		navigatorList.addAll(cmds.getAllCmds());
-		navigatorList.addAll(otfs.getAllOtfs());
-		
+
 		preferencesFile = new PreferencesFile(path, preferences);
 		preferencesFile.load();
 	}

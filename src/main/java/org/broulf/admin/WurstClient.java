@@ -113,7 +113,7 @@ public enum WurstClient
 		gui = new ClickGui(guiFile);
 		
 		Path preferencesFile = wurstFolder.resolve("preferences.json");
-		navigator = new Navigator(preferencesFile, hax, cmds, otfs);
+		navigator = new Navigator(preferencesFile, hax);
 		
 		Path friendsFile = wurstFolder.resolve("friends.json");
 		friends = new FriendsList(friendsFile);

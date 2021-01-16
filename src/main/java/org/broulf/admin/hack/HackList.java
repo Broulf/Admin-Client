@@ -35,7 +35,6 @@ public final class HackList implements UpdateListener
 	public final BaseFinderHack baseFinderHack = new BaseFinderHack();
 	public final BlinkHack blinkHack = new BlinkHack();
 	public final BoatFlyHack boatFlyHack = new BoatFlyHack();
-	public final BonemealAuraHack bonemealAuraHack = new BonemealAuraHack();
 	public final CameraNoClipHack cameraNoClipHack = new CameraNoClipHack();
 	public final CaveFinderHack caveFinderHack = new CaveFinderHack();
 	public final ChatTranslatorHack chatTranslatorHack = new ChatTranslatorHack();
@@ -44,7 +43,6 @@ public final class HackList implements UpdateListener
 	public final ExtraElytraHack extraElytraHack = new ExtraElytraHack();
 	public final FancyChatHack fancyChatHack = new FancyChatHack();
 	public final FastLadderHack fastLadderHack = new FastLadderHack();
-	public final FastPlaceHack fastPlaceHack = new FastPlaceHack();
 	public final FlightHack flightHack = new FlightHack();
 	public final ForceOpHack forceOpHack = new ForceOpHack();
 	public final FreecamHack freecamHack = new FreecamHack();
@@ -60,6 +58,7 @@ public final class HackList implements UpdateListener
 	public final MobSpawnEspHack mobSpawnEspHack = new MobSpawnEspHack();
 	public final NameProtectHack nameProtectHack = new NameProtectHack();
 	public final NameTagsHack nameTagsHack = new NameTagsHack();
+	public final NavigatorHack navigatorHack = new NavigatorHack();
 	public final NoClipHack noClipHack = new NoClipHack();
 	public final NoFallHack noFallHack = new NoFallHack();
 	public final NoFireOverlayHack noFireOverlayHack = new NoFireOverlayHack();

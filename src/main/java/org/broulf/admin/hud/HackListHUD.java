@@ -39,8 +39,6 @@ public final class HackListHUD implements UpdateListener
 			return;
 		
 		if(otf.getPosition() == HackListOtf.Position.LEFT);
-
-		else
 			posY = 2;
 		
 		// color
