@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 
 import net.minecraft.util.crash.CrashException;
 import net.minecraft.util.crash.CrashReport;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.event.EventManager;
 import org.broulf.admin.events.UpdateListener;
 import org.broulf.admin.hacks.*;
@@ -88,10 +88,10 @@ public final class HackList implements UpdateListener
 	
 	private final EnabledHacksFile enabledHacksFile;
 	private final Path profilesFolder =
-		WurstClient.INSTANCE.getWurstFolder().resolve("enabled hacks");
+		AdminClient.INSTANCE.getAdminFolder().resolve("enabled hacks");
 	
 	private final EventManager eventManager =
-		WurstClient.INSTANCE.getEventManager();
+		AdminClient.INSTANCE.getEventManager();
 	
 	public HackList(Path enabledHacksFile)
 	{

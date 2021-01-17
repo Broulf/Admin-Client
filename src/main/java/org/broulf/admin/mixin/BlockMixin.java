@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.event.EventManager;
 import org.broulf.admin.hack.HackList;
 import org.spongepowered.asm.mixin.Mixin;
@@ -45,7 +45,7 @@ public abstract class BlockMixin implements ItemConvertible
 		cancellable = true)
 	private void onGetVelocityMultiplier(CallbackInfoReturnable<Float> cir)
 	{
-		HackList hax = WurstClient.INSTANCE.getHax();
+		HackList hax = AdminClient.INSTANCE.getHax();
 		if(hax == null)
 			return;
 		

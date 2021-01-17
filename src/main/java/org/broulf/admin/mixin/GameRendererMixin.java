@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.event.EventManager;
 import org.broulf.admin.mixinterface.IGameRenderer;
 import org.objectweb.asm.Opcodes;
@@ -23,7 +23,6 @@ import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.resource.SynchronousResourceReloadListener;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
 import org.broulf.admin.events.CameraTransformViewBobbingListener.CameraTransformViewBobbingEvent;
 import org.broulf.admin.events.HitResultRayTraceListener.HitResultRayTraceEvent;
 import org.broulf.admin.events.RenderListener.RenderEvent;
@@ -72,7 +71,7 @@ public abstract class GameRendererMixin
 		method = {"getFov(Lnet/minecraft/client/render/Camera;FZ)D"})
 	private double getFov(GameOptions options)
 	{
-		return WurstClient.INSTANCE.getOtfs().zoomOtf
+		return AdminClient.INSTANCE.getOtfs().zoomOtf
 			.changeFovBasedOnZoom(options.fov);
 	}
 	
@@ -104,7 +103,7 @@ public abstract class GameRendererMixin
 	private void onBobViewWhenHurt(MatrixStack matrixStack, float f,
 		CallbackInfo ci)
 	{
-		if(WurstClient.INSTANCE.getHax().noHurtcamHack.isEnabled())
+		if(AdminClient.INSTANCE.getHax().noHurtcamHack.isEnabled())
 			ci.cancel();
 	}
 	

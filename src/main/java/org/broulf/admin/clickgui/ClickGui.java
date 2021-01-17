@@ -19,7 +19,7 @@ import java.util.Objects;
 import java.util.stream.Stream;
 
 import org.broulf.admin.Category;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.settings.Setting;
 import org.lwjgl.opengl.GL11;
 
@@ -37,8 +37,8 @@ import org.broulf.admin.util.json.JsonUtils;
 
 public final class ClickGui
 {
-	private static final WurstClient WURST = WurstClient.INSTANCE;
-	private static final MinecraftClient MC = WurstClient.MC;
+	private static final AdminClient WURST = AdminClient.INSTANCE;
+	private static final MinecraftClient MC = AdminClient.MC;
 	
 	private final ArrayList<Window> windows = new ArrayList<>();
 	private final ArrayList<Popup> popups = new ArrayList<>();
@@ -86,7 +86,7 @@ public final class ClickGui
 		for(Window window : windows)
 			window.setMinimized(true);
 		
-		windows.add(WurstClient.INSTANCE.getHax().radarHack.getWindow());
+		windows.add(AdminClient.INSTANCE.getHax().radarHack.getWindow());
 		
 		int x = 5;
 		int y = 5;
@@ -594,7 +594,7 @@ public final class ClickGui
 		opacity = clickGui.getOpacity();
 		bgColor = clickGui.getBgColor();
 		
-		if(WurstClient.INSTANCE.getHax().rainbowUiHack.isEnabled())
+		if(AdminClient.INSTANCE.getHax().rainbowUiHack.isEnabled())
 		{
 			float x = System.currentTimeMillis() % 2000 / 1000F;
 			acColor[0] = 0.5F + 0.5F * (float)Math.sin(x * Math.PI);

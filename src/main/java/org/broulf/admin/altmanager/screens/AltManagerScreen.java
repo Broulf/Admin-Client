@@ -33,8 +33,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.util.math.MathHelper;
-import org.broulf.admin.WurstClient;
-import org.broulf.admin.altmanager.*;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.util.ListWidget;
 import org.broulf.admin.util.MultiProcessingUtils;
 import org.broulf.admin.util.json.JsonException;
@@ -233,7 +232,7 @@ public final class AltManagerScreen extends Screen
 		{
 			Process process = MultiProcessingUtils.startProcessWithIO(
 				ImportAltsFileChooser.class,
-				WurstClient.INSTANCE.getWurstFolder().toString());
+				AdminClient.INSTANCE.getAdminFolder().toString());
 			
 			Path path = getFileChooserPath(process);
 			process.waitFor();
@@ -286,7 +285,7 @@ public final class AltManagerScreen extends Screen
 		{
 			Process process = MultiProcessingUtils.startProcessWithIO(
 				ExportAltsFileChooser.class,
-				WurstClient.INSTANCE.getWurstFolder().toString());
+				AdminClient.INSTANCE.getAdminFolder().toString());
 			
 			Path path = getFileChooserPath(process);
 			

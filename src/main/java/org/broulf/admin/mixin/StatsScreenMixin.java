@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -25,7 +25,7 @@ import net.minecraft.text.Text;
 @Mixin(StatsScreen.class)
 public abstract class StatsScreenMixin extends Screen implements StatsListener
 {
-	private StatsScreenMixin(WurstClient wurst, Text text_1)
+	private StatsScreenMixin(AdminClient wurst, Text text_1)
 	{
 		super(text_1);
 	}
@@ -52,7 +52,7 @@ public abstract class StatsScreenMixin extends Screen implements StatsListener
 	
 	private void toggleWurst(ButtonWidget button)
 	{
-		WurstClient wurst = WurstClient.INSTANCE;
+		AdminClient wurst = AdminClient.INSTANCE;
 		wurst.setEnabled(!wurst.isEnabled());
 		
 		updateWurstButtonText(button);
@@ -60,7 +60,7 @@ public abstract class StatsScreenMixin extends Screen implements StatsListener
 	
 	private void updateWurstButtonText(ButtonWidget button)
 	{
-		WurstClient wurst = WurstClient.INSTANCE;
+		AdminClient wurst = AdminClient.INSTANCE;
 		String text = (wurst.isEnabled() ? "Disable" : "Enable") + " Wurst";
 		button.setMessage(new LiteralText(text));
 	}

@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -31,7 +31,7 @@ public abstract class ScreenMixin
 			return;
 		
 		ChatMessageC2SPacket packet = new ChatMessageC2SPacket(message);
-		WurstClient.MC.getNetworkHandler().sendPacket(packet);
+		AdminClient.MC.getNetworkHandler().sendPacket(packet);
 		ci.cancel();
 	}
 }

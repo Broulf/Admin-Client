@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.altmanager.screens.AltManagerScreen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,7 +25,7 @@ import net.minecraft.text.Text;
 @Mixin(TitleScreen.class)
 public abstract class TitleScreenMixin extends Screen
 {
-	private TitleScreenMixin(WurstClient wurst, Text text_1)
+	private TitleScreenMixin(AdminClient wurst, Text text_1)
 	{
 		super(text_1);
 	}
@@ -33,13 +33,13 @@ public abstract class TitleScreenMixin extends Screen
 	@Inject(at = {@At("RETURN")}, method = {"initWidgetsNormal(II)V"})
 	private void onInitWidgetsNormal(int y, int spacingY, CallbackInfo ci)
 	{
-		if(!WurstClient.INSTANCE.isEnabled())
+		if(!AdminClient.INSTANCE.isEnabled())
 			return;
 		
 		addButton(new ButtonWidget(width / 2 + 2, y + spacingY * 2, 98, 20,
 			new LiteralText("Alt Manager"),
 			b -> client.openScreen(new AltManagerScreen(this,
-				WurstClient.INSTANCE.getAltManager()))));
+				AdminClient.INSTANCE.getAltManager()))));
 		
 		for(AbstractButtonWidget button : buttons)
 		{

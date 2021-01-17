@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.event.EventManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -30,7 +30,7 @@ public class IngameHudMixin extends DrawableHelper
 	private void onRender(MatrixStack matrixStack, float partialTicks,
 		CallbackInfo ci)
 	{
-		if(WurstClient.MC.options.debugEnabled)
+		if(AdminClient.MC.options.debugEnabled)
 			return;
 		
 		GUIRenderEvent event = new GUIRenderEvent(matrixStack, partialTicks);
@@ -42,7 +42,7 @@ public class IngameHudMixin extends DrawableHelper
 		cancellable = true)
 	private void onRenderPumpkinOverlay(CallbackInfo ci)
 	{
-		if(WurstClient.INSTANCE.getHax().noPumpkinHack.isEnabled())
+		if(AdminClient.INSTANCE.getHax().noPumpkinHack.isEnabled())
 			ci.cancel();
 	}
 }

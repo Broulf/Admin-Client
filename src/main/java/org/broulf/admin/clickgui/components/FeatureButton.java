@@ -10,7 +10,7 @@ package org.broulf.admin.clickgui.components;
 import java.util.Objects;
 
 import org.broulf.admin.Feature;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.ClickGui;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.clickgui.SettingsWindow;
@@ -25,8 +25,8 @@ import net.minecraft.client.util.math.MatrixStack;
 
 public final class FeatureButton extends Component
 {
-	private final MinecraftClient MC = WurstClient.MC;
-	private final ClickGui GUI = WurstClient.INSTANCE.getGui();
+	private final MinecraftClient MC = AdminClient.MC;
+	private final ClickGui GUI = AdminClient.INSTANCE.getGui();
 	
 	private final Feature feature;
 	private final boolean hasSettings;
@@ -59,7 +59,7 @@ public final class FeatureButton extends Component
 		}
 		
 		TooManyHaxHack tooManyHax =
-			WurstClient.INSTANCE.getHax().tooManyHaxHack;
+			AdminClient.INSTANCE.getHax().tooManyHaxHack;
 		if(tooManyHax.isEnabled() && tooManyHax.isBlocked(feature))
 		{
 			ChatUtils.error(feature.getName() + " is blocked by TooManyHax.");

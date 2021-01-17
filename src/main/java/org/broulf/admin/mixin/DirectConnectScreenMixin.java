@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.util.LastServerRememberer;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -28,7 +28,7 @@ public class DirectConnectScreenMixin extends Screen
 	@Final
 	private ServerInfo serverEntry;
 	
-	private DirectConnectScreenMixin(WurstClient wurst, Text text_1)
+	private DirectConnectScreenMixin(AdminClient wurst, Text text_1)
 	{
 		super(text_1);
 	}

@@ -11,7 +11,7 @@ import org.lwjgl.glfw.GLFW;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.util.InputUtil;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.screens.ClickGuiScreen;
 import org.broulf.admin.command.CmdProcessor;
 import org.broulf.admin.events.KeyPressListener;
@@ -39,7 +39,7 @@ public final class KeybindProcessor implements KeyPressListener
 		if(event.getAction() != GLFW.GLFW_PRESS)
 			return;
 		
-		Screen screen = WurstClient.MC.currentScreen;
+		Screen screen = AdminClient.MC.currentScreen;
 		if(screen != null && !(screen instanceof ClickGuiScreen))
 			return;
 		

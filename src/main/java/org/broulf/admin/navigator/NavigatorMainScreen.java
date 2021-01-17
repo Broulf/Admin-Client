@@ -19,7 +19,7 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
 import org.broulf.admin.Feature;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.ClickGui;
 import org.broulf.admin.hacks.TooManyHaxHack;
 import org.broulf.admin.util.ChatUtils;
@@ -45,14 +45,14 @@ public final class NavigatorMainScreen extends NavigatorScreen
 		hasBackground = false;
 		nonScrollableArea = 0;
 		
-		Navigator navigator = WurstClient.INSTANCE.getNavigator();
+		Navigator navigator = AdminClient.INSTANCE.getNavigator();
 		navigator.copyNavigatorList(navigatorDisplayList);
 	}
 	
 	@Override
 	protected void onResize()
 	{
-		TextRenderer tr = WurstClient.MC.textRenderer;
+		TextRenderer tr = AdminClient.MC.textRenderer;
 		searchBar =
 			new TextFieldWidget(tr, 0, 32, 200, 20, new LiteralText(""));
 		searchBar.setHasBorder(false);
@@ -106,7 +106,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 		// back button
 		if(button == GLFW.GLFW_MOUSE_BUTTON_4)
 		{
-			WurstClient.MC.openScreen((Screen)null);
+			AdminClient.MC.openScreen((Screen)null);
 			return;
 		}
 		
@@ -164,7 +164,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 			return;
 		}
 		
-		WurstClient wurst = WurstClient.INSTANCE;
+		AdminClient wurst = AdminClient.INSTANCE;
 		TooManyHaxHack tooManyHax = wurst.getHax().tooManyHaxHack;
 		
 		if(tooManyHax.isEnabled() && tooManyHax.isBlocked(feature))
@@ -185,7 +185,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 		String newText = searchBar.getText();
 		if(clickTimer == -1 && !newText.equals(lastSearchText))
 		{
-			Navigator navigator = WurstClient.INSTANCE.getNavigator();
+			Navigator navigator = AdminClient.INSTANCE.getNavigator();
 			
 			if(newText.isEmpty())
 				navigator.copyNavigatorList(navigatorDisplayList);
@@ -204,7 +204,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 			if(clickTimer < 4)
 				clickTimer++;
 			else
-				WurstClient.MC.openScreen(
+				AdminClient.MC.openScreen(
 					new NavigatorFeatureScreen(expandingFeature, this));
 		else if(!expanding && clickTimer > -1)
 			clickTimer--;
@@ -222,7 +222,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 	protected void onRender(MatrixStack matrixStack, int mouseX, int mouseY,
 		float partialTicks)
 	{
-		ClickGui gui = WurstClient.INSTANCE.getGui();
+		ClickGui gui = AdminClient.INSTANCE.getGui();
 		float[] bgColor = gui.getBgColor();
 		float[] acColor = gui.getAcColor();
 		
@@ -233,7 +233,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 		if(!clickTimerRunning)
 		{
 			GL11.glEnable(GL11.GL_TEXTURE_2D);
-			WurstClient.MC.textRenderer.draw(matrixStack, "Search: ",
+			AdminClient.MC.textRenderer.draw(matrixStack, "Search: ",
 				middleX - 150, 32, 0xffffff);
 			searchBar.render(matrixStack, mouseX, mouseY, partialTicks);
 			GL11.glDisable(GL11.GL_TEXTURE_2D);
@@ -317,7 +317,7 @@ public final class NavigatorMainScreen extends NavigatorScreen
 	private void renderFeature(MatrixStack matrixStack, int mouseX, int mouseY,
 		float partialTicks, int i, int x, int y)
 	{
-		ClickGui gui = WurstClient.INSTANCE.getGui();
+		ClickGui gui = AdminClient.INSTANCE.getGui();
 		float[] bgColor = gui.getBgColor();
 		float opacity = gui.getOpacity();
 		boolean clickTimerRunning = clickTimer != -1;

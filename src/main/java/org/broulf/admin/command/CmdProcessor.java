@@ -12,7 +12,7 @@ import java.util.Arrays;
 import net.minecraft.util.crash.CrashException;
 import net.minecraft.util.crash.CrashReport;
 import net.minecraft.util.crash.CrashReportSection;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.events.ChatOutputListener;
 import org.broulf.admin.hacks.TooManyHaxHack;
 import org.broulf.admin.util.ChatUtils;
@@ -29,7 +29,7 @@ public final class CmdProcessor implements ChatOutputListener
 	@Override
 	public void onSentMessage(ChatOutputEvent event)
 	{
-		if(!WurstClient.INSTANCE.isEnabled())
+		if(!AdminClient.INSTANCE.isEnabled())
 			return;
 		
 		String message = event.getOriginalMessage().trim();
@@ -47,7 +47,7 @@ public final class CmdProcessor implements ChatOutputListener
 			Command cmd = parseCmd(input);
 			
 			TooManyHaxHack tooManyHax =
-				WurstClient.INSTANCE.getHax().tooManyHaxHack;
+				AdminClient.INSTANCE.getHax().tooManyHaxHack;
 			if(tooManyHax.isEnabled() && tooManyHax.isBlocked(cmd))
 			{
 				ChatUtils.error(cmd.getName() + " is blocked by TooManyHax.");

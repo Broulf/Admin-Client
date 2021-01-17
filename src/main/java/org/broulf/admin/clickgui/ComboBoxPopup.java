@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.clickgui;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.settings.EnumSetting;
 import org.lwjgl.opengl.GL11;
 
@@ -16,8 +16,8 @@ import net.minecraft.client.util.math.MatrixStack;
 
 public final class ComboBoxPopup<T extends Enum<T>> extends Popup
 {
-	private final ClickGui gui = WurstClient.INSTANCE.getGui();
-	private final TextRenderer tr = WurstClient.MC.textRenderer;
+	private final ClickGui gui = AdminClient.INSTANCE.getGui();
+	private final TextRenderer tr = AdminClient.MC.textRenderer;
 	
 	private final EnumSetting<T> setting;
 	private final int popupWidth;

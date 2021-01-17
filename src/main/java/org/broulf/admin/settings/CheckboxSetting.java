@@ -13,7 +13,7 @@ import java.util.Set;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.clickgui.components.CheckboxComponent;
 import org.broulf.admin.keybinds.PossibleKeybind;
@@ -61,7 +61,7 @@ public class CheckboxSetting extends Setting implements CheckboxLock
 		this.checked = checked;
 		update();
 		
-		WurstClient.INSTANCE.saveSettings();
+		AdminClient.INSTANCE.saveSettings();
 	}
 	
 	public final boolean isLocked()

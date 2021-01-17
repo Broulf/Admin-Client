@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.clickgui.components;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.ClickGui;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.clickgui.screens.SelectFileScreen;
@@ -35,26 +35,26 @@ public final class FileComponent extends Component
 		if(mouseButton != 0)
 			return;
 		
-		TextRenderer fr = WurstClient.MC.textRenderer;
+		TextRenderer fr = AdminClient.MC.textRenderer;
 		int buttonWidth = fr.getWidth(setting.getSelectedFileName());
 		
 		if(mouseX < getX() + getWidth() - buttonWidth - 4)
 			return;
 		
-		WurstClient.MC.openScreen(
-			new SelectFileScreen(WurstClient.MC.currentScreen, setting));
+		AdminClient.MC.openScreen(
+			new SelectFileScreen(AdminClient.MC.currentScreen, setting));
 	}
 	
 	@Override
 	public void render(MatrixStack matrixStack, int mouseX, int mouseY,
 		float partialTicks)
 	{
-		ClickGui gui = WurstClient.INSTANCE.getGui();
+		ClickGui gui = AdminClient.INSTANCE.getGui();
 		float[] bgColor = gui.getBgColor();
 		float[] acColor = gui.getAcColor();
 		float opacity = gui.getOpacity();
 		
-		TextRenderer fr = WurstClient.MC.textRenderer;
+		TextRenderer fr = AdminClient.MC.textRenderer;
 		int buttonWidth = fr.getWidth(setting.getSelectedFileName());
 		
 		int x1 = getX();
@@ -120,7 +120,7 @@ public final class FileComponent extends Component
 	@Override
 	public int getDefaultWidth()
 	{
-		TextRenderer fr = WurstClient.MC.textRenderer;
+		TextRenderer fr = AdminClient.MC.textRenderer;
 		
 		String text = setting.getName() + ": ";
 		int buttonWidth = fr.getWidth(setting.getSelectedFileName());

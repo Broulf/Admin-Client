@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,7 +23,7 @@ public class PlayerInventoryMixin
 		cancellable = true)
 	private void onScrollInHotbar(double scrollAmount, CallbackInfo ci)
 	{
-		if(WurstClient.INSTANCE.getZoomKey().isPressed())
+		if(AdminClient.INSTANCE.getZoomKey().isPressed())
 			ci.cancel();
 	}
 }

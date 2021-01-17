@@ -16,7 +16,7 @@ import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 import com.mojang.authlib.yggdrasil.YggdrasilUserAuthentication;
 
 import net.minecraft.client.util.Session;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 
 public final class LoginManager
 {
@@ -32,7 +32,7 @@ public final class LoginManager
 		try
 		{
 			auth.logIn();
-			WurstClient.IMC
+			AdminClient.IMC
 				.setSession(new Session(auth.getSelectedProfile().getName(),
 					auth.getSelectedProfile().getId().toString(),
 					auth.getAuthenticatedToken(), "mojang"));
@@ -61,6 +61,6 @@ public final class LoginManager
 	
 	public static void changeCrackedName(String newName)
 	{
-		WurstClient.IMC.setSession(new Session(newName, "", "", "mojang"));
+		AdminClient.IMC.setSession(new Session(newName, "", "", "mojang"));
 	}
 }

@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.hud;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.ClickGui;
 import org.lwjgl.opengl.GL11;
 
@@ -23,14 +23,14 @@ public final class IngameHUD implements GUIRenderListener
 	@Override
 	public void onRenderGUI(MatrixStack matrixStack, float partialTicks)
 	{
-		if(!WurstClient.INSTANCE.isEnabled())
+		if(!AdminClient.INSTANCE.isEnabled())
 			return;
 		
 		if(tabGui == null)
 			tabGui = new TabGui();
 		
 		boolean blend = GL11.glGetBoolean(GL11.GL_BLEND);
-		ClickGui clickGui = WurstClient.INSTANCE.getGui();
+		ClickGui clickGui = AdminClient.INSTANCE.getGui();
 		
 		// GL settings
 		GL11.glDisable(GL11.GL_CULL_FACE);
@@ -42,7 +42,7 @@ public final class IngameHUD implements GUIRenderListener
 		tabGui.render(matrixStack, partialTicks);
 		
 		// pinned windows
-		if(!(WurstClient.MC.currentScreen instanceof ClickGuiScreen))
+		if(!(AdminClient.MC.currentScreen instanceof ClickGuiScreen))
 			clickGui.renderPinnedWindows(matrixStack, partialTicks);
 		
 		// GL resets

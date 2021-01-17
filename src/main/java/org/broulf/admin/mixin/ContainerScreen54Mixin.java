@@ -7,8 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
-import org.broulf.admin.hacks.AutoStealHack;
+import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -16,12 +15,8 @@ import org.spongepowered.asm.mixin.Shadow;
 import net.minecraft.client.gui.screen.ingame.GenericContainerScreen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.ScreenHandlerProvider;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.GenericContainerScreenHandler;
-import net.minecraft.screen.slot.Slot;
-import net.minecraft.screen.slot.SlotActionType;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 
 @Mixin(GenericContainerScreen.class)
@@ -35,9 +30,9 @@ public abstract class ContainerScreen54Mixin
 
 	private int mode;
 	
-	public ContainerScreen54Mixin(WurstClient wurst,
-		GenericContainerScreenHandler container,
-		PlayerInventory playerInventory, Text name)
+	public ContainerScreen54Mixin(AdminClient wurst,
+                                  GenericContainerScreenHandler container,
+                                  PlayerInventory playerInventory, Text name)
 	{
 		super(container, playerInventory, name);
 	}
@@ -47,7 +42,7 @@ public abstract class ContainerScreen54Mixin
 	{
 		super.init();
 		
-		if(!WurstClient.INSTANCE.isEnabled())
+		if(!AdminClient.INSTANCE.isEnabled())
 			return;
 	}
 }

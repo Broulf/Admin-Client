@@ -21,7 +21,7 @@ import java.util.stream.Stream;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.clickgui.components.FileComponent;
 import org.broulf.admin.keybinds.PossibleKeybind;
@@ -38,7 +38,7 @@ public final class FileSetting extends Setting
 		Consumer<Path> createDefaultFiles)
 	{
 		super(name, description);
-		folder = WurstClient.INSTANCE.getWurstFolder().resolve(folderName);
+		folder = AdminClient.INSTANCE.getAdminFolder().resolve(folderName);
 		this.createDefaultFiles = createDefaultFiles;
 		setSelectedFileToDefault();
 	}
@@ -67,7 +67,7 @@ public final class FileSetting extends Setting
 			return;
 		
 		this.selectedFile = selectedFile;
-		WurstClient.INSTANCE.saveSettings();
+		AdminClient.INSTANCE.saveSettings();
 	}
 	
 	private void setSelectedFileToDefault()
@@ -114,7 +114,7 @@ public final class FileSetting extends Setting
 			}
 		
 		setSelectedFileToDefault();
-		WurstClient.INSTANCE.saveSettings();
+		AdminClient.INSTANCE.saveSettings();
 	}
 	
 	public ArrayList<Path> listFiles()

@@ -7,8 +7,8 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
-import org.broulf.admin.options.WurstOptionsScreen;
+import org.broulf.admin.AdminClient;
+import org.broulf.admin.options.AdminOptionsScreen;
 import org.lwjgl.opengl.GL11;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -24,14 +24,13 @@ import net.minecraft.client.resource.language.I18n;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 
 @Mixin(GameMenuScreen.class)
 public abstract class GameMenuScreenMixin extends Screen
 {
 	private ButtonWidget wurstOptionsButton;
 	
-	private GameMenuScreenMixin(WurstClient wurst, Text text_1)
+	private GameMenuScreenMixin(AdminClient wurst, Text text_1)
 	{
 		super(text_1);
 	}
@@ -39,7 +38,7 @@ public abstract class GameMenuScreenMixin extends Screen
 	@Inject(at = {@At("TAIL")}, method = {"initWidgets()V"})
 	private void onInitWidgets(CallbackInfo ci)
 	{
-		if(!WurstClient.INSTANCE.isEnabled())
+		if(!AdminClient.INSTANCE.isEnabled())
 			return;
 		
 		addWurstOptionsButton();
@@ -57,7 +56,7 @@ public abstract class GameMenuScreenMixin extends Screen
 	
 	private void openWurstOptions()
 	{
-		client.openScreen(new WurstOptionsScreen(this));
+		client.openScreen(new AdminOptionsScreen(this));
 	}
 	
 	private void removeFeedbackAndBugReportButtons()
@@ -84,7 +83,7 @@ public abstract class GameMenuScreenMixin extends Screen
 	private void onRender(MatrixStack matrixStack, int mouseX, int mouseY,
 		float partialTicks, CallbackInfo ci)
 	{
-		if(!WurstClient.INSTANCE.isEnabled())
+		if(!AdminClient.INSTANCE.isEnabled())
 			return;
 		
 		GL11.glEnable(GL11.GL_TEXTURE_2D);

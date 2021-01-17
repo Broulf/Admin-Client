@@ -11,7 +11,7 @@ import java.util.Arrays;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.ClickGui;
 import org.broulf.admin.clickgui.ComboBoxPopup;
 import org.broulf.admin.clickgui.Component;
@@ -24,8 +24,8 @@ import net.minecraft.client.util.math.MatrixStack;
 
 public final class ComboBoxComponent<T extends Enum<T>> extends Component
 {
-	private final ClickGui gui = WurstClient.INSTANCE.getGui();
-	private final TextRenderer tr = WurstClient.MC.textRenderer;
+	private final ClickGui gui = AdminClient.INSTANCE.getGui();
+	private final TextRenderer tr = AdminClient.MC.textRenderer;
 	
 	private final EnumSetting<T> setting;
 	private final int popupWidth;

@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.clickgui.screens;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.settings.BlockSetting;
 import org.broulf.admin.util.BlockUtils;
 import org.lwjgl.glfw.GLFW;
@@ -161,7 +161,7 @@ public final class EditBlockScreen extends Screen
 		DiffuseLighting.enable();
 		ItemStack grass = new ItemStack(Blocks.GRASS_BLOCK);
 		ItemStack renderStack = !stack.isEmpty() ? stack : grass;
-		WurstClient.MC.getItemRenderer().renderInGuiWithOverrides(renderStack,
+		AdminClient.MC.getItemRenderer().renderInGuiWithOverrides(renderStack,
 			0, 0);
 		DiffuseLighting.disable();
 		
@@ -181,7 +181,7 @@ public final class EditBlockScreen extends Screen
 			GL11.glScaled(2, 2, 2);
 		
 		GL11.glDisable(GL11.GL_DEPTH_TEST);
-		TextRenderer tr = WurstClient.MC.textRenderer;
+		TextRenderer tr = AdminClient.MC.textRenderer;
 		tr.drawWithShadow(matrixStack, "?", 3, 2, 0xf0f0f0);
 		GL11.glEnable(GL11.GL_DEPTH_TEST);
 		

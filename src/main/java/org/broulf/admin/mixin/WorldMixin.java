@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.hacks.NoWeatherHack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,7 +25,7 @@ public abstract class WorldMixin implements WorldAccess, AutoCloseable
 		cancellable = true)
 	private void onGetRainGradient(float f, CallbackInfoReturnable<Float> cir)
 	{
-		if(WurstClient.INSTANCE.getHax().noWeatherHack.isRainDisabled())
+		if(AdminClient.INSTANCE.getHax().noWeatherHack.isRainDisabled())
 			cir.setReturnValue(0F);
 	}
 	
@@ -34,7 +34,7 @@ public abstract class WorldMixin implements WorldAccess, AutoCloseable
 	public float getSkyAngle(float tickDelta)
 	{
 		NoWeatherHack noWeatherHack =
-			WurstClient.INSTANCE.getHax().noWeatherHack;
+			AdminClient.INSTANCE.getHax().noWeatherHack;
 		
 		long timeOfDay =
 			noWeatherHack.isTimeChanged() ? noWeatherHack.getChangedTime()
@@ -47,7 +47,7 @@ public abstract class WorldMixin implements WorldAccess, AutoCloseable
 	public int getMoonPhase()
 	{
 		NoWeatherHack noWeatherHack =
-			WurstClient.INSTANCE.getHax().noWeatherHack;
+			AdminClient.INSTANCE.getHax().noWeatherHack;
 		
 		if(noWeatherHack.isMoonPhaseChanged())
 			return noWeatherHack.getChangedMoonPhase();

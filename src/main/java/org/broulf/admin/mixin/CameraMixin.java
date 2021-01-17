@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -26,7 +26,7 @@ public abstract class CameraMixin
 	private void onClipToSpace(double desiredCameraDistance,
 		CallbackInfoReturnable<Double> cir)
 	{
-		if(WurstClient.INSTANCE.getHax().cameraNoClipHack.isEnabled())
+		if(AdminClient.INSTANCE.getHax().cameraNoClipHack.isEnabled())
 			cir.setReturnValue(desiredCameraDistance);
 	}
 	
@@ -35,7 +35,7 @@ public abstract class CameraMixin
 		cancellable = true)
 	private void getSubmergedFluidState(CallbackInfoReturnable<FluidState> cir)
 	{
-		if(WurstClient.INSTANCE.getHax().noOverlayHack.isEnabled())
+		if(AdminClient.INSTANCE.getHax().noOverlayHack.isEnabled())
 			cir.setReturnValue(Fluids.EMPTY.getDefaultState());
 	}
 }

@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.event.EventManager;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -26,7 +26,7 @@ import org.broulf.admin.events.CactusCollisionShapeListener.CactusCollisionShape
 @Mixin(CactusBlock.class)
 public abstract class CactusBlockMixin extends Block
 {
-	private CactusBlockMixin(WurstClient wurst, Settings block$Settings_1)
+	private CactusBlockMixin(AdminClient wurst, Settings block$Settings_1)
 	{
 		super(block$Settings_1);
 	}

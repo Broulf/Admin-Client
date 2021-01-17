@@ -36,13 +36,13 @@ import net.minecraft.text.OrderedText;
 import net.minecraft.text.Style;
 import net.minecraft.text.Text;
 import net.minecraft.util.Util;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.altmanager.AltRenderer;
 
 public abstract class AltEditorScreen extends Screen
 {
 	private final Path skinFolder =
-		WurstClient.INSTANCE.getWurstFolder().resolve("skins");
+		AdminClient.INSTANCE.getAdminFolder().resolve("skins");
 	
 	protected final Screen prevScreen;
 	

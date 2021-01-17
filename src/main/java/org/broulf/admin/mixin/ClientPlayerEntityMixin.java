@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.event.EventManager;
 import org.broulf.admin.mixinterface.IClientPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -46,7 +46,7 @@ public class ClientPlayerEntityMixin extends AbstractClientPlayerEntity
 	@Shadow
 	private ClientPlayNetworkHandler networkHandler;
 	
-	public ClientPlayerEntityMixin(WurstClient wurst, ClientWorld clientWorld_1,
+	public ClientPlayerEntityMixin(AdminClient wurst, ClientWorld clientWorld_1,
                                    GameProfile gameProfile_1)
 	{
 		super(clientWorld_1, gameProfile_1);

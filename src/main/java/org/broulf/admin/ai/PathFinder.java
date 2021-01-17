@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.block.*;
@@ -23,12 +23,12 @@ import org.broulf.admin.util.RenderUtils;
 
 public class PathFinder
 {
-	private final WurstClient wurst = WurstClient.INSTANCE;
+	private final AdminClient wurst = AdminClient.INSTANCE;
 	
 	private final boolean invulnerable =
-		WurstClient.MC.player.abilities.creativeMode;
+		AdminClient.MC.player.abilities.creativeMode;
 	private final boolean creativeFlying =
-		WurstClient.MC.player.abilities.flying;
+		AdminClient.MC.player.abilities.flying;
 	protected final boolean flying =
 		creativeFlying || wurst.getHax().flightHack.isEnabled();
 	private final boolean immuneToFallDamage =
@@ -57,12 +57,12 @@ public class PathFinder
 	
 	public PathFinder(BlockPos goal)
 	{
-		if(WurstClient.MC.player.isOnGround())
-			start = new PathPos(new BlockPos(WurstClient.MC.player.getX(),
-				WurstClient.MC.player.getY() + 0.5,
-				WurstClient.MC.player.getZ()));
+		if(AdminClient.MC.player.isOnGround())
+			start = new PathPos(new BlockPos(AdminClient.MC.player.getX(),
+				AdminClient.MC.player.getY() + 0.5,
+				AdminClient.MC.player.getZ()));
 		else
-			start = new PathPos(new BlockPos(WurstClient.MC.player.getPos()));
+			start = new PathPos(new BlockPos(AdminClient.MC.player.getPos()));
 		this.goal = goal;
 		
 		costMap.put(start, 0F);
@@ -247,7 +247,7 @@ public class PathFinder
 	private boolean canGoThrough(BlockPos pos)
 	{
 		// check if loaded
-		if(!WurstClient.MC.world.isChunkLoaded(pos))
+		if(!AdminClient.MC.world.isChunkLoaded(pos))
 			return false;
 		
 		// check if solid
@@ -573,7 +573,7 @@ public class PathFinder
 			throw new IllegalStateException("Path is not formatted!");
 		
 		// check player abilities
-		if(invulnerable != WurstClient.MC.player.abilities.creativeMode
+		if(invulnerable != AdminClient.MC.player.abilities.creativeMode
 			|| flying != (creativeFlying
 				|| wurst.getHax().flightHack.isEnabled())
 			|| immuneToFallDamage != (invulnerable

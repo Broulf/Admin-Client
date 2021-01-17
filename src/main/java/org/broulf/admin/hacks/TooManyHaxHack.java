@@ -46,7 +46,7 @@ public final class TooManyHaxHack extends Hack
 				+ "Type \u00a76.help toomanyhax\u00a7r for more info.");
 		setCategory(Category.OTHER);
 		
-		Path wurstFolder = WURST.getWurstFolder();
+		Path wurstFolder = WURST.getAdminFolder();
 		profilesFolder = wurstFolder.resolve("toomanyhax");
 		
 		Path filePath = wurstFolder.resolve("toomanyhax.json");

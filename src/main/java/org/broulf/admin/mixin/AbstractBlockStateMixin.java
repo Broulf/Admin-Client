@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.event.EventManager;
 import org.broulf.admin.hack.HackList;
 import org.broulf.admin.hacks.HandNoClipHack;
@@ -35,7 +35,7 @@ import org.broulf.admin.events.IsNormalCubeListener.IsNormalCubeEvent;
 @Mixin(AbstractBlockState.class)
 public class AbstractBlockStateMixin extends State<Block, BlockState>
 {
-	private AbstractBlockStateMixin(WurstClient wurst, Block object,
+	private AbstractBlockStateMixin(AdminClient wurst, Block object,
                                     ImmutableMap<Property<?>, Comparable<?>> immutableMap,
                                     MapCodec<BlockState> mapCodec)
 	{
@@ -80,7 +80,7 @@ public class AbstractBlockStateMixin extends State<Block, BlockState>
 		if(context == ShapeContext.absent())
 			return;
 		
-		HackList hax = WurstClient.INSTANCE.getHax();
+		HackList hax = AdminClient.INSTANCE.getHax();
 		if(hax == null)
 			return;
 		

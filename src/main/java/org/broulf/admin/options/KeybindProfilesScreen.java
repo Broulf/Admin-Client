@@ -22,7 +22,7 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.util.Util;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.util.ListWidget;
 import org.broulf.admin.util.json.JsonException;
 
@@ -43,7 +43,7 @@ public final class KeybindProfilesScreen extends Screen
 	public void init()
 	{
 		listGui = new ListGui(client, this,
-			WurstClient.INSTANCE.getKeybinds().listProfiles());
+			AdminClient.INSTANCE.getKeybinds().listProfiles());
 		
 		addButton(new ButtonWidget(8, 8, 100, 20,
 			new LiteralText("Open Folder"), b -> openFolder()));
@@ -62,7 +62,7 @@ public final class KeybindProfilesScreen extends Screen
 	private void openFolder()
 	{
 		Util.getOperatingSystem().open(
-			WurstClient.INSTANCE.getKeybinds().getProfilesFolder().toFile());
+			AdminClient.INSTANCE.getKeybinds().getProfilesFolder().toFile());
 	}
 	
 	private void newProfile(String name)
@@ -72,7 +72,7 @@ public final class KeybindProfilesScreen extends Screen
 		
 		try
 		{
-			WurstClient.INSTANCE.getKeybinds().saveProfile(name);
+			AdminClient.INSTANCE.getKeybinds().saveProfile(name);
 			
 		}catch(IOException | JsonException e)
 		{
@@ -93,7 +93,7 @@ public final class KeybindProfilesScreen extends Screen
 		
 		try
 		{
-			WurstClient.INSTANCE.getKeybinds().loadProfile(fileName);
+			AdminClient.INSTANCE.getKeybinds().loadProfile(fileName);
 			openPrevScreen();
 			
 		}catch(IOException | JsonException e)

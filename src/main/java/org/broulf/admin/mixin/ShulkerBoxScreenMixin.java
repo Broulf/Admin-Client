@@ -7,19 +7,14 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
-import org.broulf.admin.hacks.AutoStealHack;
+import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Mixin;
 
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.ingame.ScreenHandlerProvider;
 import net.minecraft.client.gui.screen.ingame.ShulkerBoxScreen;
-import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ShulkerBoxScreenHandler;
-import net.minecraft.screen.slot.Slot;
-import net.minecraft.screen.slot.SlotActionType;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 
 @Mixin(ShulkerBoxScreen.class)
@@ -31,9 +26,9 @@ public abstract class ShulkerBoxScreenMixin
 
 	private int mode;
 	
-	public ShulkerBoxScreenMixin(WurstClient wurst,
-		ShulkerBoxScreenHandler container, PlayerInventory playerInventory,
-		Text name)
+	public ShulkerBoxScreenMixin(AdminClient wurst,
+                                 ShulkerBoxScreenHandler container, PlayerInventory playerInventory,
+                                 Text name)
 	{
 		super(container, playerInventory, name);
 	}
@@ -43,7 +38,7 @@ public abstract class ShulkerBoxScreenMixin
 	{
 		super.init();
 		
-		if(!WurstClient.INSTANCE.isEnabled())
+		if(!AdminClient.INSTANCE.isEnabled())
 			return;
 	}
 }

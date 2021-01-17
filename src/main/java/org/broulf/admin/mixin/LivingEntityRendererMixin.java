@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -26,7 +26,7 @@ public abstract class LivingEntityRendererMixin
 			"render(Lnet/minecraft/entity/LivingEntity;FFLnet/minecraft/client/util/math/MatrixStack;Lnet/minecraft/client/render/VertexConsumerProvider;I)V"})
 	private boolean canWurstSeePlayer(LivingEntity e, PlayerEntity player)
 	{
-		if(WurstClient.INSTANCE.getHax().trueSightHack.isEnabled())
+		if(AdminClient.INSTANCE.getHax().trueSightHack.isEnabled())
 			return false;
 		
 		return e.isInvisibleTo(player);

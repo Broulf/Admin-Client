@@ -13,7 +13,7 @@ import net.minecraft.client.options.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.other_features.ZoomOtf;
 import org.broulf.admin.settings.CheckboxSetting;
 import org.broulf.admin.settings.SliderSetting;
@@ -33,10 +33,10 @@ public class ZoomManagerScreen extends Screen implements PressAKeyCallback
 	@Override
 	public void init()
 	{
-		ZoomOtf zoom = WurstClient.INSTANCE.getOtfs().zoomOtf;
+		ZoomOtf zoom = AdminClient.INSTANCE.getOtfs().zoomOtf;
 		SliderSetting level = zoom.getLevelSetting();
 		CheckboxSetting scroll = zoom.getScrollSetting();
-		String zoomKeyName = WurstClient.INSTANCE.getZoomKey()
+		String zoomKeyName = AdminClient.INSTANCE.getZoomKey()
 			.getBoundKeyTranslationKey().replace("key.keyboard.", "");
 		
 		addButton(new ButtonWidget(width / 2 - 100, height / 4 + 144 - 16, 200,
@@ -66,7 +66,7 @@ public class ZoomManagerScreen extends Screen implements PressAKeyCallback
 	
 	private void toggleScroll()
 	{
-		ZoomOtf zoom = WurstClient.INSTANCE.getOtfs().zoomOtf;
+		ZoomOtf zoom = AdminClient.INSTANCE.getOtfs().zoomOtf;
 		CheckboxSetting scroll = zoom.getScrollSetting();
 		
 		scroll.setChecked(!scroll.isChecked());
@@ -83,7 +83,7 @@ public class ZoomManagerScreen extends Screen implements PressAKeyCallback
 	public void render(MatrixStack matrixStack, int mouseX, int mouseY,
 		float partialTicks)
 	{
-		ZoomOtf zoom = WurstClient.INSTANCE.getOtfs().zoomOtf;
+		ZoomOtf zoom = AdminClient.INSTANCE.getOtfs().zoomOtf;
 		SliderSetting level = zoom.getLevelSetting();
 		
 		renderBackground(matrixStack);
@@ -99,7 +99,7 @@ public class ZoomManagerScreen extends Screen implements PressAKeyCallback
 	@Override
 	public void setKey(String key)
 	{
-		WurstClient.INSTANCE.getZoomKey()
+		AdminClient.INSTANCE.getZoomKey()
 			.setBoundKey(InputUtil.fromTranslationKey(key));
 		client.options.write();
 		KeyBinding.updateKeysByCode();

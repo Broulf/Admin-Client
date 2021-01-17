@@ -16,7 +16,7 @@ import com.google.gson.JsonPrimitive;
 
 import net.minecraft.block.AirBlock;
 import net.minecraft.block.Block;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.clickgui.components.BlockComponent;
 import org.broulf.admin.keybinds.PossibleKeybind;
@@ -72,7 +72,7 @@ public final class BlockSetting extends Setting
 			return;
 		
 		blockName = newName;
-		WurstClient.INSTANCE.saveSettings();
+		AdminClient.INSTANCE.saveSettings();
 	}
 	
 	public void setBlockName(String blockName)
@@ -86,7 +86,7 @@ public final class BlockSetting extends Setting
 	public void resetToDefault()
 	{
 		blockName = defaultName;
-		WurstClient.INSTANCE.saveSettings();
+		AdminClient.INSTANCE.saveSettings();
 	}
 	
 	@Override

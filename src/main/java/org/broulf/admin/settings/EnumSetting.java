@@ -13,7 +13,7 @@ import java.util.Objects;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.clickgui.components.ComboBoxComponent;
 import org.broulf.admin.keybinds.PossibleKeybind;
@@ -56,7 +56,7 @@ public final class EnumSetting<T extends Enum<T>> extends Setting
 	public void setSelected(T selected)
 	{
 		this.selected = Objects.requireNonNull(selected);
-		WurstClient.INSTANCE.saveSettings();
+		AdminClient.INSTANCE.saveSettings();
 	}
 	
 	public boolean setSelected(String selected)

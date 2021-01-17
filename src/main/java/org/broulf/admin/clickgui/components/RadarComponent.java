@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.clickgui.components;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.ClickGui;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.hacks.RadarHack;
@@ -37,7 +37,7 @@ public final class RadarComponent extends Component
 	public void render(MatrixStack matrixStack, int mouseX, int mouseY,
 		float partialTicks)
 	{
-		ClickGui gui = WurstClient.INSTANCE.getGui();
+		ClickGui gui = AdminClient.INSTANCE.getGui();
 		float[] bgColor = gui.getBgColor();
 		float[] acColor = gui.getAcColor();
 		float opacity = gui.getOpacity();
@@ -71,7 +71,7 @@ public final class RadarComponent extends Component
 		
 		GL11.glPushMatrix();
 		GL11.glTranslated(middleX, middleY, 0);
-		ClientPlayerEntity player = WurstClient.MC.player;
+		ClientPlayerEntity player = AdminClient.MC.player;
 		if(!hack.isRotateEnabled())
 			GL11.glRotated(180 + player.yaw, 0, 0, 1);
 		

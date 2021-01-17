@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 
 import org.broulf.admin.Category;
 import org.broulf.admin.Feature;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.ClickGui;
 import org.broulf.admin.other_features.TabGuiOtf;
 import org.lwjgl.glfw.GLFW;
@@ -28,7 +28,7 @@ public final class TabGui implements KeyPressListener
 {
 	private final ArrayList<Tab> tabs = new ArrayList<>();
 	private final TabGuiOtf tabGuiOtf =
-		WurstClient.INSTANCE.getOtfs().tabGuiOtf;
+		AdminClient.INSTANCE.getOtfs().tabGuiOtf;
 	
 	private int width;
 	private int height;
@@ -37,7 +37,7 @@ public final class TabGui implements KeyPressListener
 	
 	public TabGui()
 	{
-		WurstClient.INSTANCE.getEventManager().add(KeyPressListener.class,
+		AdminClient.INSTANCE.getEventManager().add(KeyPressListener.class,
 			this);
 		
 		LinkedHashMap<Category, Tab> tabMap = new LinkedHashMap<>();
@@ -45,9 +45,9 @@ public final class TabGui implements KeyPressListener
 			tabMap.put(category, new Tab(category.getName()));
 		
 		ArrayList<Feature> features = new ArrayList<>();
-		features.addAll(WurstClient.INSTANCE.getHax().getAllHax());
-		features.addAll(WurstClient.INSTANCE.getCmds().getAllCmds());
-		features.addAll(WurstClient.INSTANCE.getOtfs().getAllOtfs());
+		features.addAll(AdminClient.INSTANCE.getHax().getAllHax());
+		features.addAll(AdminClient.INSTANCE.getCmds().getAllCmds());
+		features.addAll(AdminClient.INSTANCE.getOtfs().getAllOtfs());
 		
 		for(Feature feature : features)
 			if(feature.getCategory() != null)
@@ -63,7 +63,7 @@ public final class TabGui implements KeyPressListener
 		width = 64;
 		for(Tab tab : tabs)
 		{
-			int tabWidth = WurstClient.MC.textRenderer.getWidth(tab.name) + 10;
+			int tabWidth = AdminClient.MC.textRenderer.getWidth(tab.name) + 10;
 			if(tabWidth > width)
 				width = tabWidth;
 		}
@@ -125,7 +125,7 @@ public final class TabGui implements KeyPressListener
 		GL11.glShadeModel(GL11.GL_SMOOTH);
 		
 		GL11.glPushMatrix();
-		Window sr = WurstClient.MC.getWindow();
+		Window sr = AdminClient.MC.getWindow();
 		
 		int x = 2;
 		int y = 23;
@@ -147,7 +147,7 @@ public final class TabGui implements KeyPressListener
 			if(i == selected)
 				tabName = (tabOpened ? "<" : ">") + tabName;
 			
-			WurstClient.MC.textRenderer.draw(matrixStack, tabName, 2, textY,
+			AdminClient.MC.textRenderer.draw(matrixStack, tabName, 2, textY,
 				0xffffffff);
 			textY += 10;
 		}
@@ -185,7 +185,7 @@ public final class TabGui implements KeyPressListener
 				if(i == tab.selected)
 					fName = ">" + fName;
 				
-				WurstClient.MC.textRenderer.draw(matrixStack, fName, 2,
+				AdminClient.MC.textRenderer.draw(matrixStack, fName, 2,
 					tabTextY, 0xffffffff);
 				tabTextY += 10;
 			}
@@ -204,7 +204,7 @@ public final class TabGui implements KeyPressListener
 	
 	private void drawBox(int x1, int y1, int x2, int y2)
 	{
-		ClickGui gui = WurstClient.INSTANCE.getGui();
+		ClickGui gui = AdminClient.INSTANCE.getGui();
 		float[] bgColor = gui.getBgColor();
 		float[] acColor = gui.getAcColor();
 		float opacity = gui.getOpacity();
@@ -296,7 +296,7 @@ public final class TabGui implements KeyPressListener
 			for(Feature feature : features)
 			{
 				int fWidth =
-					WurstClient.MC.textRenderer.getWidth(feature.getName())
+					AdminClient.MC.textRenderer.getWidth(feature.getName())
 						+ 10;
 				if(fWidth > width)
 					width = fWidth;
@@ -333,7 +333,7 @@ public final class TabGui implements KeyPressListener
 			Feature feature = features.get(selected);
 			
 			TooManyHaxHack tooManyHax =
-				WurstClient.INSTANCE.getHax().tooManyHaxHack;
+				AdminClient.INSTANCE.getHax().tooManyHaxHack;
 			if(tooManyHax.isEnabled() && tooManyHax.isBlocked(feature))
 			{
 				ChatUtils

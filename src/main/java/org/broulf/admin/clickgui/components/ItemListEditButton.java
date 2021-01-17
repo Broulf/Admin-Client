@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.clickgui.components;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.ClickGui;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.clickgui.screens.EditItemListScreen;
@@ -26,7 +26,7 @@ public final class ItemListEditButton extends Component
 	{
 		this.setting = setting;
 		
-		TextRenderer fr = WurstClient.MC.textRenderer;
+		TextRenderer fr = AdminClient.MC.textRenderer;
 		buttonWidth = fr.getWidth("Edit...");
 		
 		setWidth(getDefaultWidth());
@@ -42,15 +42,15 @@ public final class ItemListEditButton extends Component
 		if(mouseX < getX() + getWidth() - buttonWidth - 4)
 			return;
 		
-		WurstClient.MC.openScreen(
-			new EditItemListScreen(WurstClient.MC.currentScreen, setting));
+		AdminClient.MC.openScreen(
+			new EditItemListScreen(AdminClient.MC.currentScreen, setting));
 	}
 	
 	@Override
 	public void render(MatrixStack matrixStack, int mouseX, int mouseY,
 		float partialTicks)
 	{
-		ClickGui gui = WurstClient.INSTANCE.getGui();
+		ClickGui gui = AdminClient.INSTANCE.getGui();
 		float[] bgColor = gui.getBgColor();
 		float[] acColor = gui.getAcColor();
 		float opacity = gui.getOpacity();
@@ -102,7 +102,7 @@ public final class ItemListEditButton extends Component
 		// setting name
 		GL11.glColor4f(1, 1, 1, 1);
 		GL11.glEnable(GL11.GL_TEXTURE_2D);
-		TextRenderer fr = WurstClient.MC.textRenderer;
+		TextRenderer fr = AdminClient.MC.textRenderer;
 		String text = setting.getName() + ": " + setting.getItemNames().size();
 		fr.draw(matrixStack, text, x1, y1 + 2, 0xf0f0f0);
 		fr.draw(matrixStack, "Edit...", x3 + 2, y1 + 2, 0xf0f0f0);
@@ -112,7 +112,7 @@ public final class ItemListEditButton extends Component
 	@Override
 	public int getDefaultWidth()
 	{
-		TextRenderer fr = WurstClient.MC.textRenderer;
+		TextRenderer fr = AdminClient.MC.textRenderer;
 		String text = setting.getName() + ": " + setting.getItemNames().size();
 		return fr.getWidth(text) + buttonWidth + 6;
 	}

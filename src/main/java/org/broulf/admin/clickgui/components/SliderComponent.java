@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.clickgui.components;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.ClickGui;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.clickgui.Window;
@@ -22,8 +22,8 @@ import net.minecraft.client.util.math.MatrixStack;
 
 public final class SliderComponent extends Component
 {
-	private final MinecraftClient MC = WurstClient.MC;
-	private final ClickGui GUI = WurstClient.INSTANCE.getGui();
+	private final MinecraftClient MC = AdminClient.MC;
+	private final ClickGui GUI = AdminClient.INSTANCE.getGui();
 	
 	private final SliderSetting setting;
 	private boolean dragging;

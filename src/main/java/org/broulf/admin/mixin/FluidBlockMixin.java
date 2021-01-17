@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.hack.HackList;
 import org.spongepowered.asm.mixin.Mixin;
 
@@ -24,7 +24,7 @@ import net.minecraft.world.BlockView;
 @Mixin(FluidBlock.class)
 public abstract class FluidBlockMixin extends Block implements FluidDrainable
 {
-	private FluidBlockMixin(WurstClient wurst, Settings block$Settings_1)
+	private FluidBlockMixin(AdminClient wurst, Settings block$Settings_1)
 	{
 		super(block$Settings_1);
 	}
@@ -34,7 +34,7 @@ public abstract class FluidBlockMixin extends Block implements FluidDrainable
 		BlockView blockView_1, BlockPos blockPos_1,
 		ShapeContext entityContext_1)
 	{
-		HackList hax = WurstClient.INSTANCE.getHax();
+		HackList hax = AdminClient.INSTANCE.getHax();
 		if(hax != null && hax.jesusHack.shouldBeSolid())
 			return VoxelShapes.fullCube();
 		

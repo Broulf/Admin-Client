@@ -17,7 +17,7 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.util.RenderUtils;
 
 public class NavigatorNewKeybindScreen extends NavigatorScreen
@@ -48,17 +48,17 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 				{
 					String newCommands = selectedCommand.getCommand();
 					
-					String oldCommands = WurstClient.INSTANCE.getKeybinds()
+					String oldCommands = AdminClient.INSTANCE.getKeybinds()
 						.getCommands(selectedKey);
 					if(oldCommands != null)
 						newCommands = oldCommands + " ; " + newCommands;
 					
-					WurstClient.INSTANCE.getKeybinds().add(selectedKey,
+					AdminClient.INSTANCE.getKeybinds().add(selectedKey,
 						newCommands);
 					
-					WurstClient.INSTANCE.getNavigator()
+					AdminClient.INSTANCE.getNavigator()
 						.addPreference(parent.getFeature().getName());
-					WurstClient.MC.openScreen(parent);
+					AdminClient.MC.openScreen(parent);
 				}else
 				{
 					choosingKey = true;
@@ -70,7 +70,7 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 		
 		// cancel button
 		addButton(new ButtonWidget(width / 2 + 2, height - 65, 149, 18,
-			new LiteralText("Cancel"), b -> WurstClient.MC.openScreen(parent)));
+			new LiteralText("Cancel"), b -> AdminClient.MC.openScreen(parent)));
 	}
 	
 	@Override
@@ -83,7 +83,7 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 			okButton.active = !selectedKey.equals("key.keyboard.unknown");
 			
 		}else if(keyCode == 1)
-			WurstClient.MC.openScreen(parent);
+			AdminClient.MC.openScreen(parent);
 	}
 	
 	@Override
@@ -108,7 +108,7 @@ public class NavigatorNewKeybindScreen extends NavigatorScreen
 			{
 				text += "\n\nKey: " + selectedKey.replace("key.keyboard.", "");
 				String commands =
-					WurstClient.INSTANCE.getKeybinds().getCommands(selectedKey);
+					AdminClient.INSTANCE.getKeybinds().getCommands(selectedKey);
 				if(commands != null)
 				{
 					text +=

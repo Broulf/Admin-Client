@@ -35,7 +35,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.Box;
 import org.broulf.admin.Category;
 import org.broulf.admin.SearchTags;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.events.UpdateListener;
 import org.broulf.admin.hack.Hack;
 import org.broulf.admin.settings.CheckboxSetting;
@@ -249,7 +249,7 @@ public final class MultiAuraHack extends Hack implements UpdateListener
 			RotationUtils.Rotation rotations = RotationUtils
 				.getNeededRotations(entity.getBoundingBox().getCenter());
 			
-			WurstClient.MC.player.networkHandler
+			AdminClient.MC.player.networkHandler
 				.sendPacket(new PlayerMoveC2SPacket.LookOnly(rotations.getYaw(),
 					rotations.getPitch(), MC.player.isOnGround()));
 			

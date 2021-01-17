@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.mixinterface.IKeyBinding;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -24,7 +24,7 @@ public class KeyBindingMixin implements IKeyBinding
 	@Override
 	public boolean isActallyPressed()
 	{
-		long handle = WurstClient.MC.getWindow().getHandle();
+		long handle = AdminClient.MC.getWindow().getHandle();
 		int code = boundKey.getCode();
 		return InputUtil.isKeyPressed(handle, code);
 	}

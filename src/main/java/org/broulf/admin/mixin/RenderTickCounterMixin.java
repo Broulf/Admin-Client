@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.hacks.TimerHack;
 import org.objectweb.asm.Opcodes;
 import org.spongepowered.asm.mixin.Mixin;
@@ -31,7 +31,7 @@ public abstract class RenderTickCounterMixin
 	public void onBeginRenderTick(long long_1,
 		CallbackInfoReturnable<Integer> cir)
 	{
-		TimerHack timerHack = WurstClient.INSTANCE.getHax().timerHack;
+		TimerHack timerHack = AdminClient.INSTANCE.getHax().timerHack;
 		lastFrameDuration *= timerHack.getTimerSpeed();
 	}
 }

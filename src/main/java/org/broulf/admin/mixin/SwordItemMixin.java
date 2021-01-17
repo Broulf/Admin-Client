@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.mixinterface.ISwordItem;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -33,7 +33,7 @@ public class SwordItemMixin extends ToolItem implements ISwordItem
 	@Final
 	private Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 	
-	private SwordItemMixin(WurstClient wurst, ToolMaterial material,
+	private SwordItemMixin(AdminClient wurst, ToolMaterial material,
                            Settings settings)
 	{
 		super(material, settings);

@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.hacks.AutoReconnectHack;
 import org.broulf.admin.util.LastServerRememberer;
 import org.spongepowered.asm.mixin.Final;
@@ -37,7 +37,7 @@ public class DisconnectedScreenMixin extends Screen
 	@Shadow
 	private int reasonHeight;
 	
-	private DisconnectedScreenMixin(WurstClient wurst, Text text_1)
+	private DisconnectedScreenMixin(AdminClient wurst, Text text_1)
 	{
 		super(text_1);
 	}
@@ -45,7 +45,7 @@ public class DisconnectedScreenMixin extends Screen
 	@Inject(at = {@At("TAIL")}, method = {"init()V"})
 	private void onInit(CallbackInfo ci)
 	{
-		if(!WurstClient.INSTANCE.isEnabled())
+		if(!AdminClient.INSTANCE.isEnabled())
 			return;
 		
 		int backButtonX = width / 2 - 100;
@@ -60,14 +60,14 @@ public class DisconnectedScreenMixin extends Screen
 			addButton(new ButtonWidget(backButtonX, backButtonY + 48, 200, 20,
 				new LiteralText("AutoReconnect"), b -> pressAutoReconnect()));
 		
-		if(WurstClient.INSTANCE.getHax().autoReconnectHack.isEnabled())
+		if(AdminClient.INSTANCE.getHax().autoReconnectHack.isEnabled())
 			autoReconnectTimer = 100;
 	}
 	
 	private void pressAutoReconnect()
 	{
 		AutoReconnectHack autoReconnect =
-			WurstClient.INSTANCE.getHax().autoReconnectHack;
+			AdminClient.INSTANCE.getHax().autoReconnectHack;
 		
 		autoReconnect.setEnabled(!autoReconnect.isEnabled());
 		
@@ -79,7 +79,7 @@ public class DisconnectedScreenMixin extends Screen
 	public void tick()
 	{
 		AutoReconnectHack autoReconnect =
-			WurstClient.INSTANCE.getHax().autoReconnectHack;
+			AdminClient.INSTANCE.getHax().autoReconnectHack;
 		
 		if(!autoReconnect.isEnabled())
 		{

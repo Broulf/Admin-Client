@@ -24,7 +24,7 @@ public final class WurstInitializer implements ModInitializer
 			throw new RuntimeException(
 				"WurstInitializer.onInitialize() ran twice!");
 		
-		WurstClient.INSTANCE.initialize();
+		AdminClient.INSTANCE.initialize();
 		initialized = true;
 	}
 }

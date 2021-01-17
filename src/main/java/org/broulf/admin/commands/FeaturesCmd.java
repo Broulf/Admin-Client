@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.commands;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.command.CmdException;
 import org.broulf.admin.command.CmdSyntaxError;
 import org.broulf.admin.command.Command;
@@ -31,7 +31,7 @@ public final class FeaturesCmd extends Command
 		if(args.length != 0)
 			throw new CmdSyntaxError();
 		
-		if(WurstClient.VERSION.startsWith("7.0pre"))
+		if(AdminClient.VERSION.startsWith("7.0pre"))
 			ChatUtils.warning(
 				"This is just a pre-release! It doesn't (yet) have all of the features of Wurst 7.0! See download page for details.");
 		

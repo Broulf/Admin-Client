@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.mixinterface.IMiningToolItem;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -33,7 +33,7 @@ public class MiningToolItemMixin extends ToolItem implements IMiningToolItem
 	@Final
 	private Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
 	
-	private MiningToolItemMixin(WurstClient wurst, ToolMaterial material,
+	private MiningToolItemMixin(AdminClient wurst, ToolMaterial material,
                                 Settings settings)
 	{
 		super(material, settings);

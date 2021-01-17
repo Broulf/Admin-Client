@@ -11,13 +11,13 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.hud.ChatHud;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 
 public enum ChatUtils
 {
 	;
 	
-	private static final MinecraftClient MC = WurstClient.MC;
+	private static final MinecraftClient MC = AdminClient.MC;
 	
 	public static final String WURST_PREFIX =
 		"\u00a7c[\u00a76ADMIN\u00a7c]\u00a7r ";

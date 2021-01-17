@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.mixinterface.IMultiplayerScreen;
 import org.broulf.admin.serverfinder.CleanUpScreen;
 import org.broulf.admin.serverfinder.ServerFinderScreen;
@@ -34,7 +34,7 @@ public class MultiplayerScreenMixin extends Screen implements IMultiplayerScreen
 	
 	private ButtonWidget lastServerButton;
 	
-	private MultiplayerScreenMixin(WurstClient wurst, Text text_1)
+	private MultiplayerScreenMixin(AdminClient wurst, Text text_1)
 	{
 		super(text_1);
 	}
@@ -54,7 +54,7 @@ public class MultiplayerScreenMixin extends Screen implements IMultiplayerScreen
 	@Inject(at = {@At("TAIL")}, method = {"init()V"})
 	private void onInit(CallbackInfo ci)
 	{
-		if(!WurstClient.INSTANCE.isEnabled())
+		if(!AdminClient.INSTANCE.isEnabled())
 			return;
 		
 		lastServerButton = addButton(new ButtonWidget(width / 2 - 154, 10, 100,

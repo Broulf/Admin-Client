@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -27,7 +27,7 @@ public class InGameOverlayRendererMixin
 	private static void onRenderFireOverlay(MinecraftClient minecraftClient,
 		MatrixStack matrixStack, CallbackInfo ci)
 	{
-		if(WurstClient.INSTANCE.getHax().noFireOverlayHack.isEnabled())
+		if(AdminClient.INSTANCE.getHax().noFireOverlayHack.isEnabled())
 			ci.cancel();
 	}
 	
@@ -39,7 +39,7 @@ public class InGameOverlayRendererMixin
 		MinecraftClient minecraftClient, MatrixStack matrixStack,
 		CallbackInfo ci)
 	{
-		if(WurstClient.INSTANCE.getHax().noOverlayHack.isEnabled())
+		if(AdminClient.INSTANCE.getHax().noOverlayHack.isEnabled())
 			ci.cancel();
 	}
 }

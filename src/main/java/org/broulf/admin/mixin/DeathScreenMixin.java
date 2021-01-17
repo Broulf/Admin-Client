@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.event.EventManager;
 import org.broulf.admin.events.DeathListener;
 import org.spongepowered.asm.mixin.Mixin;
@@ -22,7 +22,7 @@ import net.minecraft.text.Text;
 @Mixin(DeathScreen.class)
 public abstract class DeathScreenMixin extends Screen
 {
-	private DeathScreenMixin(WurstClient wurst, Text text_1)
+	private DeathScreenMixin(AdminClient wurst, Text text_1)
 	{
 		super(text_1);
 	}

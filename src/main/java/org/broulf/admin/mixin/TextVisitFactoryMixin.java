@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -25,6 +25,6 @@ public abstract class TextVisitFactoryMixin
 		index = 0)
 	private static String adjustText(String text)
 	{
-		return WurstClient.INSTANCE.getHax().nameProtectHack.protect(text);
+		return AdminClient.INSTANCE.getHax().nameProtectHack.protect(text);
 	}
 }

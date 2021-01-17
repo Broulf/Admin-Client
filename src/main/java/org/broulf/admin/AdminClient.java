@@ -48,7 +48,7 @@ import org.broulf.admin.hack.HackList;
 import org.broulf.admin.hud.IngameHUD;
 import org.broulf.admin.util.json.JsonException;
 
-public enum WurstClient
+public enum AdminClient
 {
 	INSTANCE;
 	
@@ -76,7 +76,7 @@ public enum WurstClient
 	
 	private boolean enabled = true;
 	private static boolean guiInitialized;
-	private Path wurstFolder;
+	private Path adminFolder;
 	
 	private KeyBinding zoomKey;
 	
@@ -84,38 +84,38 @@ public enum WurstClient
 	{
 		System.out.println("Starting Admin Client...");
 		
-		wurstFolder = createWurstFolder();
+		adminFolder = createAdminFolder();
 		
 		String trackingID = "UA-52838431-5";
 		String hostname = "client.wurstclient.net";
-		Path analyticsFile = wurstFolder.resolve("analytics.json");
+		Path analyticsFile = adminFolder.resolve("analytics.json");
 		analytics = new WurstAnalytics(trackingID, hostname, analyticsFile);
 		
 		eventManager = new EventManager(this);
 		
-		Path enabledHacksFile = wurstFolder.resolve("enabled-hacks.json");
+		Path enabledHacksFile = adminFolder.resolve("enabled-hacks.json");
 		hax = new HackList(enabledHacksFile);
 		
 		cmds = new CmdList();
 		
 		otfs = new OtfList();
 		
-		Path settingsFile = wurstFolder.resolve("settings.json");
-		settingsProfileFolder = wurstFolder.resolve("settings");
+		Path settingsFile = adminFolder.resolve("settings.json");
+		settingsProfileFolder = adminFolder.resolve("settings");
 		this.settingsFile = new SettingsFile(settingsFile, hax, cmds, otfs);
 		this.settingsFile.load();
 		hax.tooManyHaxHack.loadBlockedHacksFile();
 		
-		Path keybindsFile = wurstFolder.resolve("keybinds.json");
+		Path keybindsFile = adminFolder.resolve("keybinds.json");
 		keybinds = new KeybindList(keybindsFile);
 		
-		Path guiFile = wurstFolder.resolve("windows.json");
+		Path guiFile = adminFolder.resolve("windows.json");
 		gui = new ClickGui(guiFile);
 		
-		Path preferencesFile = wurstFolder.resolve("preferences.json");
+		Path preferencesFile = adminFolder.resolve("preferences.json");
 		navigator = new Navigator(preferencesFile, hax);
 		
-		Path friendsFile = wurstFolder.resolve("friends.json");
+		Path friendsFile = adminFolder.resolve("friends.json");
 		friends = new FriendsList(friendsFile);
 		friends.load();
 		
@@ -133,7 +133,7 @@ public enum WurstClient
 		eventManager.add(PreMotionListener.class, rotationFaker);
 		eventManager.add(PostMotionListener.class, rotationFaker);
 
-		Path altsFile = wurstFolder.resolve("alts.encrypted_json");
+		Path altsFile = adminFolder.resolve("alts.encrypted_json");
 		Path encFolder = createEncryptionFolder();
 		altManager = new AltManager(altsFile, encFolder);
 		
@@ -142,25 +142,25 @@ public enum WurstClient
 		KeyBindingHelper.registerKeyBinding(zoomKey);
 		
 		analytics.trackPageView("/mc" + MC_VERSION + "/v" + VERSION,
-			"Wurst " + VERSION + " MC" + MC_VERSION);
+			"Admin " + VERSION + " MC" + MC_VERSION);
 	}
 	
-	private Path createWurstFolder()
+	private Path createAdminFolder()
 	{
 		Path dotMinecraftFolder = MC.runDirectory.toPath().normalize();
-		Path wurstFolder = dotMinecraftFolder.resolve("wurst");
+		Path adminFolder = dotMinecraftFolder.resolve("admin");
 		
 		try
 		{
-			Files.createDirectories(wurstFolder);
+			Files.createDirectories(adminFolder);
 			
 		}catch(IOException e)
 		{
 			throw new RuntimeException(
-				"Couldn't create .minecraft/wurst folder.", e);
+				"Couldn't create .minecraft/admin folder.", e);
 		}
 		
-		return wurstFolder;
+		return adminFolder;
 	}
 	
 	private Path createEncryptionFolder()
@@ -189,7 +189,7 @@ public enum WurstClient
 		}catch(IOException e)
 		{
 			throw new RuntimeException(
-				"Couldn't create '.Wurst encryption' folder.", e);
+				"Couldn't create '.Admin encryption' folder.", e);
 		}
 		
 		return encFolder;
@@ -327,9 +327,9 @@ public enum WurstClient
 		}
 	}
 	
-	public Path getWurstFolder()
+	public Path getAdminFolder()
 	{
-		return wurstFolder;
+		return adminFolder;
 	}
 	
 	public KeyBinding getZoomKey()

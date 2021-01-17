@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Mixin;
 
 import net.minecraft.client.MinecraftClient;
@@ -19,7 +19,7 @@ import net.minecraft.text.Text;
 @Mixin(ButtonWidget.class)
 public abstract class ButtonWidgetMixin extends AbstractPressableButtonWidget
 {
-	public ButtonWidgetMixin(WurstClient wurst, int i, int j, int k, int l,
+	public ButtonWidgetMixin(AdminClient wurst, int i, int j, int k, int l,
                              Text text)
 	{
 		super(i, j, k, l, text);

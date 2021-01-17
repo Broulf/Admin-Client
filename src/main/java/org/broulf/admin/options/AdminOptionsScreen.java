@@ -18,17 +18,17 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.analytics.WurstAnalytics;
 import org.broulf.admin.commands.FriendsCmd;
 import org.broulf.admin.other_features.VanillaSpoofOtf;
 import org.broulf.admin.settings.CheckboxSetting;
 
-public class WurstOptionsScreen extends Screen
+public class AdminOptionsScreen extends Screen
 {
 	private Screen prevScreen;
 	
-	public WurstOptionsScreen(Screen prevScreen)
+	public AdminOptionsScreen(Screen prevScreen)
 	{
 		super(new LiteralText(""));
 		this.prevScreen = prevScreen;
@@ -46,7 +46,7 @@ public class WurstOptionsScreen extends Screen
 	
 	private void addSettingButtons()
 	{
-		WurstClient wurst = WurstClient.INSTANCE;
+		AdminClient wurst = AdminClient.INSTANCE;
 		FriendsCmd friendsCmd = wurst.getCmds().friendsCmd;
 		CheckboxSetting middleClickFriends = friendsCmd.getMiddleClickFriends();
 		WurstAnalytics analytics = wurst.getAnalytics();
@@ -137,8 +137,8 @@ public class WurstOptionsScreen extends Screen
 			Supplier<String> messageSupplier, String tooltip,
 			PressAction pressAction)
 		{
-			super(WurstOptionsScreen.this.width / 2 + xOffset,
-				WurstOptionsScreen.this.height / 4 - 16 + yOffset, 100, 20,
+			super(AdminOptionsScreen.this.width / 2 + xOffset,
+				AdminOptionsScreen.this.height / 4 - 16 + yOffset, 100, 20,
 				new LiteralText(messageSupplier.get()), pressAction);
 			
 			this.messageSupplier = messageSupplier;

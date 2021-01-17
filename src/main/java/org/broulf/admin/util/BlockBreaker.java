@@ -19,14 +19,14 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.util.shape.VoxelShape;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 
 public enum BlockBreaker
 {
 	;
 	
-	private static final WurstClient WURST = WurstClient.INSTANCE;
-	private static final MinecraftClient MC = WurstClient.MC;
+	private static final AdminClient WURST = AdminClient.INSTANCE;
+	private static final MinecraftClient MC = AdminClient.MC;
 	
 	public static boolean breakOneBlock(BlockPos pos)
 	{

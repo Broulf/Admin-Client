@@ -21,7 +21,7 @@ import com.google.gson.JsonElement;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.clickgui.components.ItemListEditButton;
 import org.broulf.admin.keybinds.PossibleKeybind;
@@ -59,7 +59,7 @@ public final class ItemListSetting extends Setting
 		
 		itemNames.add(name);
 		Collections.sort(itemNames);
-		WurstClient.INSTANCE.saveSettings();
+		AdminClient.INSTANCE.saveSettings();
 	}
 	
 	public void remove(int index)
@@ -68,14 +68,14 @@ public final class ItemListSetting extends Setting
 			return;
 		
 		itemNames.remove(index);
-		WurstClient.INSTANCE.saveSettings();
+		AdminClient.INSTANCE.saveSettings();
 	}
 	
 	public void resetToDefaults()
 	{
 		itemNames.clear();
 		itemNames.addAll(Arrays.asList(defaultNames));
-		WurstClient.INSTANCE.saveSettings();
+		AdminClient.INSTANCE.saveSettings();
 	}
 	
 	@Override

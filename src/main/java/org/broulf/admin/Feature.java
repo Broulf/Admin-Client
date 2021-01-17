@@ -21,10 +21,10 @@ import org.broulf.admin.settings.Setting;
 
 public abstract class Feature
 {
-	protected static final WurstClient WURST = WurstClient.INSTANCE;
+	protected static final AdminClient WURST = AdminClient.INSTANCE;
 	protected static final EventManager EVENTS = WURST.getEventManager();
-	protected static final MinecraftClient MC = WurstClient.MC;
-	protected static final IMinecraftClient IMC = WurstClient.IMC;
+	protected static final MinecraftClient MC = AdminClient.MC;
+	protected static final IMinecraftClient IMC = AdminClient.IMC;
 	
 	private final LinkedHashMap<String, Setting> settings =
 		new LinkedHashMap<>();

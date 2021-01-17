@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.util;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.lwjgl.opengl.GL11;
 
 import net.minecraft.client.render.Camera;
@@ -26,8 +26,8 @@ public enum RenderUtils
 	{
 		int width = endX - startX;
 		int height = endY - startY;
-		int bottomY = WurstClient.MC.currentScreen.height - endY;
-		double factor = WurstClient.MC.getWindow().getScaleFactor();
+		int bottomY = AdminClient.MC.currentScreen.height - endY;
+		double factor = AdminClient.MC.getWindow().getScaleFactor();
 		
 		int scissorX = (int)(startX * factor);
 		int scissorY = (int)(bottomY * factor);

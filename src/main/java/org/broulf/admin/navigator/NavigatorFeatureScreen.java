@@ -36,7 +36,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.LiteralText;
 import org.broulf.admin.Feature;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.clickgui.Window;
 import org.broulf.admin.command.Command;
@@ -89,7 +89,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 				hasHelp ? 149 : 302, 18, new LiteralText(primaryAction), b -> {
 					
 					TooManyHaxHack tooManyHax =
-						WurstClient.INSTANCE.getHax().tooManyHaxHack;
+						AdminClient.INSTANCE.getHax().tooManyHaxHack;
 					if(tooManyHax.isEnabled() && tooManyHax.isBlocked(feature))
 					{
 						ChatUtils.error(
@@ -101,7 +101,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 					
 					primaryButton.setMessage(
 						new LiteralText(feature.getPrimaryAction()));
-					WurstClient.INSTANCE.getNavigator()
+					AdminClient.INSTANCE.getNavigator()
 						.addPreference(feature.getName());
 				});
 			addButton(primaryButton);
@@ -168,7 +168,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 					public void press()
 					{
 						// add keybind
-						WurstClient.MC.openScreen(new NavigatorNewKeybindScreen(
+						AdminClient.MC.openScreen(new NavigatorNewKeybindScreen(
 							possibleKeybinds, NavigatorFeatureScreen.this));
 					}
 				};
@@ -181,7 +181,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 					possibleKeybind.getDescription());
 			TreeMap<String, PossibleKeybind> existingKeybinds = new TreeMap<>();
 			boolean noKeybindsSet = true;
-			for(Keybind keybind : WurstClient.INSTANCE.getKeybinds()
+			for(Keybind keybind : AdminClient.INSTANCE.getKeybinds()
 				.getAllKeybinds())
 			{
 				String commands = keybind.getCommands();
@@ -254,7 +254,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 	protected void onMouseClick(double x, double y, int button)
 	{
 		// popups
-		if(WurstClient.INSTANCE.getGui().handleNavigatorPopupClick(
+		if(AdminClient.INSTANCE.getGui().handleNavigatorPopupClick(
 			x - middleX + 154, y - 60 - scroll + 13, button))
 			return;
 		
@@ -275,13 +275,13 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 			client.getSoundManager().play(
 				PositionedSoundInstance.master(SoundEvents.UI_BUTTON_CLICK, 1));
 			activeButton.press();
-			WurstClient.INSTANCE.getNavigator()
+			AdminClient.INSTANCE.getNavigator()
 				.addPreference(feature.getName());
 			return;
 		}
 		
 		// component settings
-		WurstClient.INSTANCE.getGui().handleNavigatorMouseClick(
+		AdminClient.INSTANCE.getGui().handleNavigatorMouseClick(
 			x - middleX + 154, y - 60 - scroll - window.getY(), button, window);
 	}
 	
@@ -301,7 +301,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 	@Override
 	protected void onMouseRelease(double x, double y, int button)
 	{
-		WurstClient.INSTANCE.getGui().handleMouseRelease(x, y, button);
+		AdminClient.INSTANCE.getGui().handleMouseRelease(x, y, button);
 	}
 	
 	@Override
@@ -344,7 +344,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 		glEnable(GL_SCISSOR_TEST);
 		
 		// settings
-		WurstClient.INSTANCE.getGui().setTooltip("");
+		AdminClient.INSTANCE.getGui().setTooltip("");
 		window.validate();
 		
 		int windowY = bgy1 + scroll + window.getY();
@@ -471,7 +471,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 		GL11.glPushMatrix();
 		GL11.glTranslated(bgx1, bgy1 + scroll - 13, 0);
 		GL11.glDisable(GL11.GL_TEXTURE_2D);
-		WurstClient.INSTANCE.getGui().renderPopupsAndTooltip(matrixStack,
+		AdminClient.INSTANCE.getGui().renderPopupsAndTooltip(matrixStack,
 			mouseX - bgx1, mouseY - bgy1 - scroll + 13);
 		GL11.glPopMatrix();
 		
@@ -519,7 +519,7 @@ public final class NavigatorFeatureScreen extends NavigatorScreen
 	public void onClose()
 	{
 		window.close();
-		WurstClient.INSTANCE.getGui().handleMouseClick(Integer.MIN_VALUE,
+		AdminClient.INSTANCE.getGui().handleMouseClick(Integer.MIN_VALUE,
 			Integer.MIN_VALUE, 0);
 	}
 	

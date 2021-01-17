@@ -28,7 +28,7 @@ public final class RotationFaker
 		if(!fakeRotation)
 			return;
 		
-		ClientPlayerEntity player = WurstClient.MC.player;
+		ClientPlayerEntity player = AdminClient.MC.player;
 		realYaw = player.yaw;
 		realPitch = player.pitch;
 		player.yaw = serverYaw;
@@ -41,7 +41,7 @@ public final class RotationFaker
 		if(!fakeRotation)
 			return;
 		
-		ClientPlayerEntity player = WurstClient.MC.player;
+		ClientPlayerEntity player = AdminClient.MC.player;
 		player.yaw = realYaw;
 		player.pitch = realPitch;
 		fakeRotation = false;
@@ -62,8 +62,8 @@ public final class RotationFaker
 		RotationUtils.Rotation rotations =
 			RotationUtils.getNeededRotations(vec);
 		
-		WurstClient.MC.player.yaw = rotations.getYaw();
-		WurstClient.MC.player.pitch = rotations.getPitch();
+		AdminClient.MC.player.yaw = rotations.getYaw();
+		AdminClient.MC.player.pitch = rotations.getPitch();
 	}
 	
 	public void faceVectorClientIgnorePitch(Vec3d vec)
@@ -71,17 +71,17 @@ public final class RotationFaker
 		RotationUtils.Rotation rotations =
 			RotationUtils.getNeededRotations(vec);
 		
-		WurstClient.MC.player.yaw = rotations.getYaw();
-		WurstClient.MC.player.pitch = 0;
+		AdminClient.MC.player.yaw = rotations.getYaw();
+		AdminClient.MC.player.pitch = 0;
 	}
 	
 	public float getServerYaw()
 	{
-		return fakeRotation ? serverYaw : WurstClient.MC.player.yaw;
+		return fakeRotation ? serverYaw : AdminClient.MC.player.yaw;
 	}
 	
 	public float getServerPitch()
 	{
-		return fakeRotation ? serverPitch : WurstClient.MC.player.pitch;
+		return fakeRotation ? serverPitch : AdminClient.MC.player.pitch;
 	}
 }

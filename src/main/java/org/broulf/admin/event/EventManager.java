@@ -15,15 +15,15 @@ import java.util.Objects;
 import net.minecraft.util.crash.CrashException;
 import net.minecraft.util.crash.CrashReport;
 import net.minecraft.util.crash.CrashReportSection;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 
 public final class EventManager
 {
-	private final WurstClient wurst;
+	private final AdminClient wurst;
 	private final HashMap<Class<? extends Listener>, ArrayList<? extends Listener>> listenerMap =
 		new HashMap<>();
 	
-	public EventManager(WurstClient wurst)
+	public EventManager(AdminClient wurst)
 	{
 		this.wurst = wurst;
 	}
@@ -35,7 +35,7 @@ public final class EventManager
 	 */
 	public static <L extends Listener, E extends Event<L>> void fire(E event)
 	{
-		EventManager eventManager = WurstClient.INSTANCE.getEventManager();
+		EventManager eventManager = AdminClient.INSTANCE.getEventManager();
 		if(eventManager == null)
 			return;
 		

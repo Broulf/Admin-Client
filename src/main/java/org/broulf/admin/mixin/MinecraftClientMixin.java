@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.event.EventManager;
 import org.broulf.admin.mixinterface.IClientPlayerEntity;
 import org.broulf.admin.mixinterface.IClientPlayerInteractionManager;
@@ -50,7 +50,7 @@ public abstract class MinecraftClientMixin
 	
 	private Session wurstSession;
 	
-	private MinecraftClientMixin(WurstClient wurst, String string_1)
+	private MinecraftClientMixin(AdminClient wurst, String string_1)
 	{
 		super(string_1);
 	}
@@ -82,15 +82,15 @@ public abstract class MinecraftClientMixin
 	@Inject(at = {@At("HEAD")}, method = {"doItemPick()V"})
 	private void onDoItemPick(CallbackInfo ci)
 	{
-		if(!WurstClient.INSTANCE.isEnabled())
+		if(!AdminClient.INSTANCE.isEnabled())
 			return;
 		
-		HitResult hitResult = WurstClient.MC.crosshairTarget;
+		HitResult hitResult = AdminClient.MC.crosshairTarget;
 		if(hitResult == null || hitResult.getType() != HitResult.Type.ENTITY)
 			return;
 		
 		Entity entity = ((EntityHitResult)hitResult).getEntity();
-		WurstClient.INSTANCE.getFriends().middleClick(entity);
+		AdminClient.INSTANCE.getFriends().middleClick(entity);
 	}
 	
 	@Inject(at = {@At("HEAD")},

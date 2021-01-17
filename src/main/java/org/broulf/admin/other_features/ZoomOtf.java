@@ -10,7 +10,7 @@ package org.broulf.admin.other_features;
 import net.minecraft.client.options.GameOptions;
 import org.broulf.admin.DontBlock;
 import org.broulf.admin.SearchTags;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.events.MouseScrollListener;
 import org.broulf.admin.other_feature.OtherFeature;
 import org.broulf.admin.settings.CheckboxSetting;
@@ -44,7 +44,7 @@ public final class ZoomOtf extends OtherFeature implements MouseScrollListener
 	
 	public double changeFovBasedOnZoom(double fov)
 	{
-		GameOptions gameOptions = WurstClient.MC.options;
+		GameOptions gameOptions = AdminClient.MC.options;
 		
 		if(currentLevel == null)
 			currentLevel = level.getValue();

@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.hacks.NameTagsHack;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -61,7 +61,7 @@ public abstract class EntityRendererMixin<T extends Entity>
 		if(d > 4096)
 			return;
 		
-		NameTagsHack nameTagsHack = WurstClient.INSTANCE.getHax().nameTagsHack;
+		NameTagsHack nameTagsHack = AdminClient.INSTANCE.getHax().nameTagsHack;
 		
 		boolean bl = !entity.isSneaky() || nameTagsHack.isEnabled();
 		float f = entity.getHeight() + 0.5F;
@@ -74,7 +74,7 @@ public abstract class EntityRendererMixin<T extends Entity>
 		float scale = 0.025F;
 		if(nameTagsHack.isEnabled())
 		{
-			double distance = WurstClient.MC.player.distanceTo(entity);
+			double distance = AdminClient.MC.player.distanceTo(entity);
 			
 			if(distance > 10)
 				scale *= distance / 10;
@@ -83,7 +83,7 @@ public abstract class EntityRendererMixin<T extends Entity>
 		matrixStack.scale(-scale, -scale, scale);
 		
 		Matrix4f matrix4f = matrixStack.peek().getModel();
-		float g = WurstClient.MC.options.getTextBackgroundOpacity(0.25F);
+		float g = AdminClient.MC.options.getTextBackgroundOpacity(0.25F);
 		int k = (int)(g * 255.0F) << 24;
 		
 		TextRenderer textRenderer = this.getFontRenderer();

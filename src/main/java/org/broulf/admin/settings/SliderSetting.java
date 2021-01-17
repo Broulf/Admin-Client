@@ -12,7 +12,7 @@ import java.util.LinkedHashSet;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.clickgui.Component;
 import org.broulf.admin.clickgui.components.SliderComponent;
 import org.broulf.admin.keybinds.PossibleKeybind;
@@ -99,7 +99,7 @@ public class SliderSetting extends Setting implements SliderLock
 		this.value = value;
 		update();
 		
-		WurstClient.INSTANCE.saveSettings();
+		AdminClient.INSTANCE.saveSettings();
 	}
 	
 	public final void increaseValue()

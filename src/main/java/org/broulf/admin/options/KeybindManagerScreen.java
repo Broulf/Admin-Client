@@ -17,7 +17,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.util.ListWidget;
 
 public final class KeybindManagerScreen extends Screen
@@ -58,7 +58,7 @@ public final class KeybindManagerScreen extends Screen
 			new ButtonWidget(8, 8, 100, 20, new LiteralText("Reset Keybinds"),
 				b -> client.openScreen(new ConfirmScreen(confirmed -> {
 					if(confirmed)
-						WurstClient.INSTANCE.getKeybinds()
+						AdminClient.INSTANCE.getKeybinds()
 							.setKeybinds(KeybindList.DEFAULT_KEYBINDS);
 					client.openScreen(this);
 				}, new LiteralText(
@@ -72,7 +72,7 @@ public final class KeybindManagerScreen extends Screen
 	
 	private void edit()
 	{
-		Keybind keybind = WurstClient.INSTANCE.getKeybinds().getAllKeybinds()
+		Keybind keybind = AdminClient.INSTANCE.getKeybinds().getAllKeybinds()
 			.get(listGui.selected);
 		client.openScreen(new KeybindEditorScreen(this, keybind.getKey(),
 			keybind.getCommands()));
@@ -80,9 +80,9 @@ public final class KeybindManagerScreen extends Screen
 	
 	private void remove()
 	{
-		Keybind keybind1 = WurstClient.INSTANCE.getKeybinds().getAllKeybinds()
+		Keybind keybind1 = AdminClient.INSTANCE.getKeybinds().getAllKeybinds()
 			.get(listGui.selected);
-		WurstClient.INSTANCE.getKeybinds().remove(keybind1.getKey());
+		AdminClient.INSTANCE.getKeybinds().remove(keybind1.getKey());
 	}
 	
 	@Override
@@ -190,7 +190,7 @@ public final class KeybindManagerScreen extends Screen
 		@Override
 		protected int getItemCount()
 		{
-			return WurstClient.INSTANCE.getKeybinds().getAllKeybinds().size();
+			return AdminClient.INSTANCE.getKeybinds().getAllKeybinds().size();
 		}
 		
 		@Override
@@ -214,7 +214,7 @@ public final class KeybindManagerScreen extends Screen
 			int y, int slotHeight, int mouseX, int mouseY, float partialTicks)
 		{
 			Keybind keybind =
-				WurstClient.INSTANCE.getKeybinds().getAllKeybinds().get(index);
+				AdminClient.INSTANCE.getKeybinds().getAllKeybinds().get(index);
 			
 			client.textRenderer.draw(matrixStack,
 				"Key: " + keybind.getKey().replace("key.keyboard.", ""), x + 3,

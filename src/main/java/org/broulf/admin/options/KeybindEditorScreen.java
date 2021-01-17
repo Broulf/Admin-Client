@@ -12,7 +12,7 @@ import net.minecraft.client.gui.widget.ButtonWidget;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 
 public final class KeybindEditorScreen extends Screen
 	implements PressAKeyCallback
@@ -72,9 +72,9 @@ public final class KeybindEditorScreen extends Screen
 	private void save()
 	{
 		if(oldKey != null)
-			WurstClient.INSTANCE.getKeybinds().remove(oldKey);
+			AdminClient.INSTANCE.getKeybinds().remove(oldKey);
 		
-		WurstClient.INSTANCE.getKeybinds().add(key, commandField.getText());
+		AdminClient.INSTANCE.getKeybinds().add(key, commandField.getText());
 		client.openScreen(prevScreen);
 	}
 	

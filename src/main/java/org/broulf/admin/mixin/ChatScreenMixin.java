@@ -7,7 +7,7 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -25,7 +25,7 @@ public class ChatScreenMixin extends Screen
 	@Shadow
 	protected TextFieldWidget chatField;
 	
-	private ChatScreenMixin(WurstClient wurst, Text text_1)
+	private ChatScreenMixin(AdminClient wurst, Text text_1)
 	{
 		super(text_1);
 	}
@@ -33,7 +33,7 @@ public class ChatScreenMixin extends Screen
 	@Inject(at = {@At("TAIL")}, method = {"init()V"})
 	protected void onInit(CallbackInfo ci)
 	{
-		if(WurstClient.INSTANCE.getHax().infiniChatHack.isEnabled())
+		if(AdminClient.INSTANCE.getHax().infiniChatHack.isEnabled())
 			chatField.setMaxLength(Integer.MAX_VALUE);
 	}
 }

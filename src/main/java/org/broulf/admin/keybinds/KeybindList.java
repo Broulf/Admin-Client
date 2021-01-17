@@ -18,7 +18,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.broulf.admin.WurstClient;
+import org.broulf.admin.AdminClient;
 import org.broulf.admin.util.json.JsonException;
 
 public final class KeybindList
@@ -28,7 +28,7 @@ public final class KeybindList
 	
 	private final KeybindsFile keybindsFile;
 	private final Path profilesFolder =
-		WurstClient.INSTANCE.getWurstFolder().resolve("keybinds");
+		AdminClient.INSTANCE.getAdminFolder().resolve("keybinds");
 	
 	public KeybindList(Path keybindsFile)
 	{
