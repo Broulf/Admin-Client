@@ -20,11 +20,11 @@
   "environment": "client",
   "entrypoints": {
     "main": [
-      "org.broulf.admin.WurstInitializer"
+      "org.broulf.admin.AdminInitializer"
     ]
   },
   "mixins": [
-    "wurst.mixins.json"
+    "admin.mixins.json"
   ],
 
   "depends": {

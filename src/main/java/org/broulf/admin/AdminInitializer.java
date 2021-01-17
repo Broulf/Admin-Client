@@ -9,7 +9,7 @@ package org.broulf.admin;
 
 import net.fabricmc.api.ModInitializer;
 
-public final class WurstInitializer implements ModInitializer
+public final class AdminInitializer implements ModInitializer
 {
 	private static boolean initialized;
 	
@@ -22,7 +22,7 @@ public final class WurstInitializer implements ModInitializer
 		
 		if(initialized)
 			throw new RuntimeException(
-				"WurstInitializer.onInitialize() ran twice!");
+				"AdminInitializer.onInitialize() ran twice!");
 		
 		AdminClient.INSTANCE.initialize();
 		initialized = true;
