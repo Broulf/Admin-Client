@@ -28,11 +28,11 @@ public final class BlinkCmd extends Command
 		if(args.length > 1)
 			throw new CmdSyntaxError();
 		
-		BlinkHack blinkHack = Feature.WURST.getHax().blinkHack;
+		//BlinkHack blinkHack = Feature.WURST.getHax().blinkHack;
 		
 		if(args.length == 0)
 		{
-			blinkHack.setEnabled(!blinkHack.isEnabled());
+			//blinkHack.setEnabled(!blinkHack.isEnabled());
 			return;
 		}
 		
@@ -42,15 +42,15 @@ public final class BlinkCmd extends Command
 			throw new CmdSyntaxError();
 			
 			case "on":
-			blinkHack.setEnabled(true);
+			//blinkHack.setEnabled(true);
 			break;
 			
 			case "off":
-			blinkHack.setEnabled(false);
+			//blinkHack.setEnabled(false);
 			break;
 			
 			case "cancel":
-			cancel(blinkHack);
+			//cancel(blinkHack);
 			break;
 		}
 	}

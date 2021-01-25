@@ -138,7 +138,7 @@ public final class MultiAuraHack extends Hack implements UpdateListener
 	public void onEnable()
 	{
 		// disable other killauras
-		WURST.getHax().tpAuraHack.setEnabled(false);
+		//WURST.getHax().tpAuraHack.setEnabled(false);
 
 		timer = 0;
 		EVENTS.add(UpdateListener.class, this);

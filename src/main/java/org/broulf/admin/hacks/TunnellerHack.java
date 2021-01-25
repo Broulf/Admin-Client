@@ -145,11 +145,11 @@ public final class TunnellerHack extends Hack
 	public void onUpdate()
 	{
 		HackList hax = WURST.getHax();
-		Hack[] incompatibleHax = {
-			hax.blinkHack, hax.flightHack
-		};
-		for(Hack hack : incompatibleHax)
-			hack.setEnabled(false);
+		//Hack[] incompatibleHax = {
+			//hax.blinkHack, hax.flightHack
+		//};
+		//for(Hack hack : incompatibleHax)
+			//hack.setEnabled(false);
 		
 		if(hax.freecamHack.isEnabled())
 			return;

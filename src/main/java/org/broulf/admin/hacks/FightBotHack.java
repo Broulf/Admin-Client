@@ -149,7 +149,7 @@ public final class FightBotHack extends Hack
 	public void onEnable()
 	{
 		// disable other killauras
-		WURST.getHax().tpAuraHack.setEnabled(false);
+		//WURST.getHax().tpAuraHack.setEnabled(false);
 		
 		pathFinder = new EntityPathFinder(MC.player);
 		

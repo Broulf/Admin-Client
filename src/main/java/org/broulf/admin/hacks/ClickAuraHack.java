@@ -136,7 +136,7 @@ public final class ClickAuraHack extends Hack
 	public void onEnable()
 	{
 		// disable other killauras
-		WURST.getHax().tpAuraHack.setEnabled(false);
+		//WURST.getHax().tpAuraHack.setEnabled(false);
 		
 		EVENTS.add(UpdateListener.class, this);
 		EVENTS.add(LeftClickListener.class, this);

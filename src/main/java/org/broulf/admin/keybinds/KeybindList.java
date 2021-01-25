@@ -120,7 +120,6 @@ public final class KeybindList
 		addKB(set, "g", "flight");
 		addKB(set, "h", "say /home");
 		addKB(set, "j", "jesus");
-		addKB(set, "right.control", "clickgui");
 		addKB(set, "right.shift", "navigator");
 		addKB(set, "u", "freecam");
 		return Collections.unmodifiableSet(set);

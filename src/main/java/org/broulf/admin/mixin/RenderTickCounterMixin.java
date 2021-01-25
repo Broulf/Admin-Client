@@ -31,7 +31,7 @@ public abstract class RenderTickCounterMixin
 	public void onBeginRenderTick(long long_1,
 		CallbackInfoReturnable<Integer> cir)
 	{
-		TimerHack timerHack = AdminClient.INSTANCE.getHax().timerHack;
-		lastFrameDuration *= timerHack.getTimerSpeed();
+		//TimerHack timerHack = AdminClient.INSTANCE.getHax().timerHack;
+		//lastFrameDuration *= timerHack.getTimerSpeed();
 	}
 }

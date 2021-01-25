@@ -78,9 +78,9 @@ public final class ClickGui
 		
 		Window uiSettings = new Window("UI Settings");
 		uiSettings.add(new FeatureButton(WURST.getOtfs().hackListOtf));
-		ClickGuiHack clickGuiHack = WURST.getHax().clickGuiHack;
-		Stream<Setting> settings = clickGuiHack.getSettings().values().stream();
-		settings.map(Setting::getComponent).forEach(c -> uiSettings.add(c));
+		//ClickGuiHack clickGuiHack = WURST.getHax().clickGuiHack;
+		//Stream<Setting> settings = clickGuiHack.getSettings().values().stream();
+		//settings.map(Setting::getComponent).forEach(c -> uiSettings.add(c));
 		windows.add(uiSettings);
 		
 		for(Window window : windows)
@@ -589,10 +589,10 @@ public final class ClickGui
 	
 	public void updateColors()
 	{
-		ClickGuiHack clickGui = WURST.getHax().clickGuiHack;
+		//ClickGuiHack clickGui = WURST.getHax().clickGuiHack;
 		
-		opacity = clickGui.getOpacity();
-		bgColor = clickGui.getBgColor();
+		//opacity = clickGui.getOpacity();
+		//bgColor = clickGui.getBgColor();
 		
 		if(AdminClient.INSTANCE.getHax().rainbowUiHack.isEnabled())
 		{
@@ -601,8 +601,9 @@ public final class ClickGui
 			acColor[1] = 0.5F + 0.5F * (float)Math.sin((x + 4F / 3F) * Math.PI);
 			acColor[2] = 0.5F + 0.5F * (float)Math.sin((x + 8F / 3F) * Math.PI);
 			
-		}else
-			acColor = clickGui.getAcColor();
+		}
+		//else
+			//acColor = clickGui.getAcColor();
 	}
 	
 	private void renderWindow(MatrixStack matrixStack, Window window,

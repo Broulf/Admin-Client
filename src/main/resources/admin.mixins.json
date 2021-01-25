@@ -50,7 +50,6 @@
     "StatusEffectInstanceMixin",
     "SwordItemMixin",
     "TerrainRenderContextMixin",
-    "TextVisitFactoryMixin",
     "TitleScreenMixin",
     "WorldMixin"
   ],

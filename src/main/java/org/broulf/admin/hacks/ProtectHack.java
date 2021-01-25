@@ -152,7 +152,7 @@ public final class ProtectHack extends Hack
 	public void onEnable()
 	{
 		// disable other killauras
-		WURST.getHax().tpAuraHack.setEnabled(false);
+		//WURST.getHax().tpAuraHack.setEnabled(false);
 		
 		// set friend
 		if(friend == null)

@@ -7,7 +7,6 @@
  */
 package org.broulf.admin.mixin;
 
-import org.broulf.admin.AdminClient;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -23,8 +22,8 @@ public abstract class TextVisitFactoryMixin
 		method = {
 			"visitFormatted(Ljava/lang/String;ILnet/minecraft/text/Style;Lnet/minecraft/text/CharacterVisitor;)Z"},
 		index = 0)
-	private static String adjustText(String text)
+	private static void adjustText(String text)
 	{
-		return AdminClient.INSTANCE.getHax().nameProtectHack.protect(text);
+		//return AdminClient.INSTANCE.getHax().nameProtectHack.protect(text);
 	}
 }
